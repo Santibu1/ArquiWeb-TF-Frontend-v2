@@ -1,0 +1,167 @@
+:host {
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+.user-home-dashboard {
+    padding: 20px;
+    background-color: #f4f4f4; /* El fondo gris claro de user-content */
+}
+
+/* Sección de Saludo y Estadísticas */
+.user-greeting-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinea el texto arriba y la tarjeta de stats a la derecha */
+    margin-bottom: 40px;
+}
+
+.user-greeting-section h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+}
+
+.user-stats-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    padding: 20px 30px;
+    display: flex;
+    gap: 30px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #4CAF50; /* Verde vibrante */
+}
+.stat-label {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+}
+
+/* Sección de Actividades Recientes */
+.recent-activities-section {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    padding: 30px;
+}
+.recent-activities-section h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.recent-activities-section h3::before { /* El círculo gris al lado de "Recientes" */
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #bbb;
+    border-radius: 50%;
+}
+
+
+/* Tarjetas de Actividad */
+.activity-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fcfcfc;
+}
+.activity-card:last-child {
+    margin-bottom: 0; /* No hay margen inferior en la última tarjeta */
+}
+
+.activity-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.activity-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #bbb; /* Fondo gris para el icono */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+.activity-icon::before { /* Para poner un círculo pequeño de 'P' o 'E' */
+    content: 'P'; /* Puedes cambiarlo dinámicamente con JS */
+}
+/* Estilos específicos para el segundo icono (Entrenamiento) */
+.activity-card:nth-child(2) .activity-icon::before {
+    content: 'E';
+}
+
+
+.activity-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #444;
+    flex-grow: 1; /* Para que el título ocupe el espacio */
+}
+
+.notification-badge {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 3px 7px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.close-activity-btn {
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0;
+}
+.close-activity-btn:hover {
+    color: #555;
+}
+
+.activity-details {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    padding-left: 34px; /* Alineado con el texto del título */
+}
+
+.ver-conversacion-btn {
+    background-color: #4CAF50; /* Verde vibrante */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-left: 34px; /* Alineado con el texto del título */
+}
+.ver-conversacion-btn:hover {
+    background-color: #45a049;
+}

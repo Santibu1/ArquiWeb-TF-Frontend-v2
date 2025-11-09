@@ -1,0 +1,81 @@
+<mat-card class="form-card">
+
+    <mat-card-title>
+        {{ edicion ? 'Editar Actividad' : 'Nueva Actividad' }}
+    </mat-card-title>
+
+    <mat-card-content>
+
+        <form [formGroup]="form" class="form-container" (ngSubmit)="onSubmit()">
+
+            <mat-form-field appearance="fill">
+                <mat-label>Nombre de la Actividad</mat-label>
+                <input matInput formControlName="nombreActividad" placeholder="Ingrese el nombre">
+                <mat-error *ngIf="form.get('nombreActividad')?.hasError('required')">
+                    El nombre es requerido.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Descripción</mat-label>
+                <textarea matInput formControlName="descripcionActividad" placeholder="Ingrese la descripción"></textarea>
+                <mat-error *ngIf="form.get('descripcionActividad')?.hasError('required')">
+                    La descripción es requerida.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Recompensa (puntos)</mat-label>
+                <input matInput type="number" formControlName="recompensaActividad" placeholder="100">
+                <mat-error *ngIf="form.get('recompensaActividad')?.hasError('required')">
+                    La recompensa es requerida.
+                </mat-error>
+                <mat-error *ngIf="form.get('recompensaActividad')?.hasError('min')">
+                    Debe ser mayor a 0.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Categoría</mat-label>
+                <mat-select formControlName="categoriaActividad">
+                    <mat-option *ngFor="let cat of categorias" [value]="cat">
+                        {{cat}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('categoriaActividad')?.hasError('required')">
+                    La categoría es requerida.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Estado</mat-label>
+                <mat-select formControlName="estadoActividad">
+                    <mat-option *ngFor="let est of estados" [value]="est">
+                        {{est}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('estadoActividad')?.hasError('required')">
+                    El estado es requerido.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>ID de Usuario (Admin)</mat-label>
+                <input matInput type="number" formControlName="usuario_id" placeholder="1">
+                <mat-error *ngIf="form.get('usuario_id')?.hasError('required')">
+                    El ID de usuario es requerido.
+                </mat-error>
+            </mat-form-field>
+
+            <div class="action-buttons">
+                <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">
+                    {{ edicion ? 'Actualizar' : 'Guardar' }}
+                </button>
+                <button type="button" mat-button (click)="cancelar()">
+                    Cancelar
+                </button>
+            </div>
+
+        </form>
+    </mat-card-content>
+</mat-card>

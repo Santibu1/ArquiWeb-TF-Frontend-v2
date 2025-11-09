@@ -1,0 +1,54 @@
+/* src/app/componente/administrador/reportes-listar-administrador/reportes-listar-administrador.component.css */
+
+.container {
+    padding: 24px;
+    margin: auto;
+    max-width: 1400px;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+p {
+    font-size: 1rem;
+    color: #616161; /* Color de texto secundario */
+    margin-top: -16px;
+    margin-bottom: 24px;
+}
+
+/* Estilo para el campo de filtro (si lo descomentas) */
+mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.mat-elevation-z8 {
+    border-radius: 8px;
+    overflow: auto; /* Scroll horizontal en móviles */
+}
+
+.mat-table {
+    width: 100%;
+}
+
+/* Estilo para alinear la columna numérica a la derecha */
+.col-numerica {
+    text-align: right;
+    padding-right: 24px; /* Más espacio para números */
+}
+
+/* Pone el número de reclamos en negrita y color */
+.mat-cell.col-numerica strong {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #3f51b5; /* Color primario de Material */
+}
+
+.mat-row.mat-no-data-row .mat-cell {
+    text-align: center;
+    padding: 24px;
+    color: rgba(0, 0, 0, 0.54);
+    font-style: italic;
+}

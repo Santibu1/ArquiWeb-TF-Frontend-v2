@@ -1,0 +1,38 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.user-layout-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    /* Tus estilos de header (fondo azul oscuro, etc.) */
+    background-color: #1e1e2f;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header h2 { margin: 0; }
+header nav a { color: #f0f0f0; text-decoration: none; margin: 0 10px; }
+header nav a:hover { color: white; }
+
+.user-content {
+    flex-grow: 1; /* Esta es la clave para que el footer baje */
+    padding: 20px; /* Espacio para el contenido */
+    background-color: #f4f4f4; /* Fondo gris claro para el contenido */
+}
+
+footer.footer {
+    /* Tus estilos de footer (fondo azul oscuro, etc.) */
+    background-color: #1e1e2f;
+    color: #ccc;
+    padding: 30px 20px;
+}
+/* ... (tus otros estilos de .footer-content, .footer-section, etc.) ... */

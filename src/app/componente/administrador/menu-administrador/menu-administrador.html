@@ -1,0 +1,66 @@
+<div class="admin-dashboard">
+    <!-- Sección del Perfil del Administrador -->
+    <div class="admin-profile-section">
+        <div class="profile-card">
+            <div class="profile-avatar">
+                <img src="assets/avatar-placeholder.png" alt="Avatar" />
+            </div>
+            <h2 class="profile-name">Administrador</h2>
+        </div>
+    </div>
+
+    <!-- Sección de Herramientas -->
+    <div class="tools-section">
+        <h2 class="section-title">Herramientas</h2>
+        <div class="tools-grid">
+            <a [routerLink]="'/admin/productos'" class="tool-item">
+                <div class="tool-icon">
+                    <img src="assets/icons/productos.svg" alt="Productos" />
+                </div>
+                <span class="tool-label">PRODUCTOS</span>
+            </a>
+
+            <a [routerLink]="'/admin/empresas'" class="tool-item">
+                <div class="tool-icon">
+                    <img src="assets/icons/empresas.svg" alt="Empresas" />
+                </div>
+                <span class="tool-label">EMPRESAS</span>
+            </a>
+
+            <a [routerLink]="'/admin/comunidades'" class="tool-item">
+                <div class="tool-icon">
+                    <img src="assets/icons/comunidades.svg" alt="Comunidades" />
+                </div>
+                <span class="tool-label">COMUNIDADES</span>
+            </a>
+
+            <a [routerLink]="'/admin/usuarios'" class="tool-item">
+                <div class="tool-icon">
+                    <img src="assets/icons/usuarios.svg" alt="Usuarios" />
+                </div>
+                <span class="tool-label">USUARIOS</span>
+            </a>
+
+            <a [routerLink]="'/admin/solicitudes'" class="tool-item">
+                <div class="tool-icon">
+                    <img src="assets/icons/solicitudes.svg" alt="Solicitudes" />
+                </div>
+                <span class="tool-label">SOLICITUDES</span>
+            </a>
+
+            <a [routerLink]="'/admin/actividades'" class="tool-item">
+                <div class="tool-icon">
+                    <img src="assets/icons/actividades.svg" alt="Actividades" />
+                </div>
+                <span class="tool-label">ACTIVIDADES</span>
+            </a>
+
+            <a [routerLink]="'/admin/reportes/empresas'" class="tool-item">
+                <div class="tool-icon">
+                    <img src="assets/icons/reportes.svg" alt="Reportes" />
+                </div>
+                <span class="tool-label">REPORTES</span>
+            </a>
+        </div>
+    </div>
+</div>
