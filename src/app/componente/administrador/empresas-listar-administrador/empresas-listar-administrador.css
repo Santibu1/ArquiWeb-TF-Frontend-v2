@@ -1,0 +1,93 @@
+/* src/app/components/empresas-listar-administrador/empresas-listar-administrador.css */
+
+.container {
+    padding: 0;
+    max-width: 100%;
+    margin: 0;
+    background-color: #f8f9fa;
+    /* Calcula la altura menos el navbar (si tienes uno de 64px) */
+    min-height: calc(100vh - 64px);
+}
+
+.header-section {
+    background-color: white;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.back-button {
+    background-color: transparent;
+    border: none;
+    color: #2c3e50;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.back-button:hover {
+    color: #27ae60; /* Color verde de tu botón 'add' */
+}
+
+.back-button mat-icon {
+    font-size: 20px;
+}
+
+.header-section h1 {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.content-section {
+    padding: 2rem;
+    max-width: 1400px; /* Limita el ancho del contenido de la tabla */
+    margin: 0 auto;
+}
+
+.table-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
+}
+
+.add-button {
+    background-color: #27ae60 !important; /* Verde */
+    color: white;
+    padding: 0.5rem 2rem;
+    border-radius: 4px;
+}
+
+/* Contenedor de la tabla */
+.mat-elevation-z8 {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden; /* Asegura que la tabla respete los bordes redondeados */
+}
+
+table {
+    width: 100%;
+}
+
+/* Estilo de los Headers de la tabla */
+th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+td, th {
+    padding: 16px;
+}
+
+/* Hover suave sobre las filas */
+tr:hover {
+    background-color: #f9f9f9;
+}

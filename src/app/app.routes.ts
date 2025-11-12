@@ -14,6 +14,12 @@ import {
     ReportesListarAdministradorComponent
 } from "./componente/administrador/reportes-listar-administrador/reportes-listar-administrador";
 import {HomeUsuario} from "./componente/usuario/home-usuario/home-usuario";
+import {
+    EmpresasListarAdministrador
+} from "./componente/administrador/empresas-listar-administrador/empresas-listar-administrador";
+import {
+    EmpresasNuevoEditAdministrador
+} from "./componente/administrador/empresas-nuevo-edit-administrador/empresas-nuevo-edit-administrador";
 
 export const routes: Routes = [
     // 🔐 LOGIN
@@ -27,6 +33,10 @@ export const routes: Routes = [
             { path: 'actividades', component: ActividadesListarAdministradorComponent },
             { path: 'actividad/nuevo', component: ActividadesNuevoEditAdministradorComponent },
             { path: 'actividad/editar/:id', component: ActividadesNuevoEditAdministradorComponent },
+            { path: 'empresas', component: EmpresasListarAdministrador },
+            { path: 'empresa/nuevo', component: EmpresasNuevoEditAdministrador },
+            { path: 'empresa/editar/:id', component: EmpresasNuevoEditAdministrador },
+
             { path: 'usuarios', component: UsuariosListarAdministrador },
             { path: 'reportes', component: ReportesListarAdministradorComponent },
             //{ path: '', redirectTo: 'actividades', pathMatch: 'full' }

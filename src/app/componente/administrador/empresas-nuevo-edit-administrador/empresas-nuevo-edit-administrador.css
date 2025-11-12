@@ -1,0 +1,28 @@
+/* src/app/componente/administrador/empresas-nuevo-edit-administrador/empresas-nuevo-edit-administrador.css */
+
+/* Contenedor de la tarjeta (card) */
+.form-card {
+    max-width: 700px;
+    width: 100%;
+    margin: 24px auto; /* Centra la tarjeta en la página */
+}
+
+/* Contenedor del formulario (la clase del HTML del profesor) */
+.form-container {
+    display: flex;
+    flex-direction: column; /* Apila los campos verticalmente */
+}
+
+/* Hace que todos los campos de formulario ocupen el ancho completo */
+.form-container mat-form-field {
+    width: 100%;
+    margin-bottom: 5px; /* Pequeño espacio entre campos */
+}
+
+/* Contenedor para los botones */
+.action-buttons {
+    display: flex;
+    gap: 10px; /* Espacio entre los botones */
+    margin-top: 20px;
+    justify-content: flex-end; /* Alinea los botones a la derecha */
+}
