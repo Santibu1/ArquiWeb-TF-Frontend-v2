@@ -1,0 +1,29 @@
+<div class="login-container">
+    <div class="login-card">
+        <!-- Icono de usuario -->
+        <div class="user-icon">
+            <mat-icon>account_circle</mat-icon>
+        </div>
+
+        <!-- Formulario -->
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="outline" class="login-input">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" placeholder="Email" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="login-input">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password" placeholder="Password" />
+            </mat-form-field>
+
+            <button type="submit" mat-raised-button class="login-button">
+                Log In
+            </button>
+
+            <a class="register-link" routerLink="/registro">
+                Registrarse
+            </a>
+        </form>
+    </div>
+</div>
