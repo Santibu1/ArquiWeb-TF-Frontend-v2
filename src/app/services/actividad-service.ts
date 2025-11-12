@@ -4,7 +4,7 @@ import {inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, Subject} from 'rxjs';
 import {Actividad} from '../model/actividad';
-import {environment} from "../environments/environment";
+import {environment} from "../../environments/environment";
 
 @Injectable({
     providedIn: 'root'
