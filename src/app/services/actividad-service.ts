@@ -26,7 +26,7 @@ export class ActividadService {
 
     // GET (Listar por ID)
     listId(id: number): Observable<Actividad>{
-        return this.httpClient.get<Actividad>('${this.url}/listarActividadesPorID/${id}');
+        return this.httpClient.get<Actividad>(`${this.url}/listarActividadesPorID/${id}`);
     }
 
     // POST (Insertar)
