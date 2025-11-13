@@ -42,7 +42,7 @@ export class LoginComponent {
     ngOnInit() {
         if (localStorage.getItem('token')) {
             localStorage.clear(); // borra todos los items
-            console.log("Token y items eliminados");
+            console.log("Token e items eliminados");
         }
     }
 

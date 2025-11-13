@@ -1,0 +1,113 @@
+.app-footer {
+    background-color: #282C46; /* Mismo color de tu navbar */
+    color: white;
+    padding: 2.5rem 0; /* Espaciado vertical */
+    flex-shrink: 0; /* Evita que el footer se encoja */
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap; /* Para que sea responsive en móviles */
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1400px;
+    margin: 0 auto;
+    /* Coincide con el padding de 48px (3rem) de tu navbar */
+    padding: 0 48px;
+    gap: 2rem; /* Espacio entre columnas */
+}
+
+.footer-column {
+    min-width: 220px;
+}
+
+.footer-column h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+    color: white;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.footer-column li {
+    margin-bottom: 0.6rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+}
+
+/* Estilo para los puntos de la lista de contacto */
+.contact-list li {
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.contact-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Estilo para links (Términos) */
+.footer-column a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Columna de Redes Sociales */
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-top: 0.5rem; /* Alineación visual con los títulos */
+}
+
+.social-icons a {
+    color: white;
+    font-size: 2rem; /* Tamaño de los iconos */
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: scale(1.15); /* Efecto al pasar el mouse */
+}
+
+/* Responsive Básico */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0 32px;
+    }
+
+    .social-icons {
+        justify-content: center;
+        width: 100%;
+        margin-top: 1.5rem;
+    }
+
+    /* Ocultar los puntos en móvil */
+    .contact-list li {
+        padding-left: 0;
+    }
+    .contact-list li::before {
+        display: none;
+    }
+}
