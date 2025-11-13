@@ -1,71 +1,54 @@
-<!-- Solo mostrar el contenedor completo cuando estamos en /admin -->
-<div class="admin-dashboard" *ngIf="mostrarDashboard">
-    <!-- Header con título -->
-    <div class="dashboard-header">
-        <h1 class="header-title">Ventana Principal</h1>
+<!-- menu-administrador.html -->
+<div class="admin-shell" *ngIf="mostrarDashboard">
+    <div class="page-intro">
+        <h1 class="page-title">Ventana principal</h1>
+        <p class="page-subtitle">Accede a los módulos de gestión</p>
     </div>
 
-    <div class="dashboard-content">
-        <!-- Sección del Perfil (Izquierda) -->
-        <div class="admin-profile-section">
-            <div class="profile-card">
-                <div class="profile-avatar">
-                    <mat-icon>person</mat-icon>
-                </div>
-                <h2 class="profile-name">Administrador</h2>
-            </div>
-        </div>
+    <nav class="tools-grid" aria-label="Módulos de administración" role="navigation">
+        <a class="tool-card" [routerLink]="'/admin/productos'" aria-label="Productos">
+            <span class="tool-icon" aria-hidden="true"><mat-icon>inventory_2</mat-icon></span>
+            <span class="tool-title">Productos</span>
+            <span class="tool-desc">Catálogo y canje</span>
+        </a>
 
-        <!-- Sección de Herramientas (Derecha) -->
-        <div class="tools-section">
-            <h2 class="section-title">Herramientas</h2>
-            <div class="tools-grid">
-                <a [routerLink]="'/admin/productos'" class="tool-item">
-                    <div class="tool-icon">
-                        <mat-icon>inventory_2</mat-icon>
-                    </div>
-                    <span class="tool-label">PRODUCTOS</span>
-                </a>
-                <a [routerLink]="'/admin/empresas'" class="tool-item">
-                    <div class="tool-icon">
-                        <mat-icon>handshake</mat-icon>
-                    </div>
-                    <span class="tool-label">EMPRESAS</span>
-                </a>
-                <a [routerLink]="'/admin/comunidades'" class="tool-item">
-                    <div class="tool-icon">
-                        <mat-icon>groups</mat-icon>
-                    </div>
-                    <span class="tool-label">COMUNIDADES</span>
-                </a>
-                <a [routerLink]="'/admin/usuarios'" class="tool-item">
-                    <div class="tool-icon">
-                        <mat-icon>group</mat-icon>
-                    </div>
-                    <span class="tool-label">USUARIOS</span>
-                </a>
-                <a [routerLink]="'/admin/solicitudes'" class="tool-item">
-                    <div class="tool-icon">
-                        <mat-icon>description</mat-icon>
-                    </div>
-                    <span class="tool-label">SOLICITUDES</span>
-                </a>
-                <a [routerLink]="'/admin/actividades'" class="tool-item">
-                    <div class="tool-icon">
-                        <mat-icon>search</mat-icon>
-                    </div>
-                    <span class="tool-label">ACTIVIDADES</span>
-                </a>
-                <a [routerLink]="'/admin/reportes'" class="tool-item">
-                    <div class="tool-icon">
-                        <mat-icon>assignment</mat-icon>
-                    </div>
-                    <span class="tool-label">REPORTES</span>
-                </a>
-            </div>
-        </div>
-    </div>
+        <a class="tool-card" [routerLink]="'/admin/empresas'" aria-label="Empresas">
+            <span class="tool-icon" aria-hidden="true"><mat-icon>handshake</mat-icon></span>
+            <span class="tool-title">Empresas</span>
+            <span class="tool-desc">Socios y marcas</span>
+        </a>
+
+        <a class="tool-card" [routerLink]="'/admin/comunidades'" aria-label="Comunidades">
+            <span class="tool-icon" aria-hidden="true"><mat-icon>groups</mat-icon></span>
+            <span class="tool-title">Comunidades</span>
+            <span class="tool-desc">Grupos y eventos</span>
+        </a>
+
+        <a class="tool-card" [routerLink]="'/admin/usuarios'" aria-label="Usuarios">
+            <span class="tool-icon" aria-hidden="true"><mat-icon>group</mat-icon></span>
+            <span class="tool-title">Usuarios</span>
+            <span class="tool-desc">Altas y estado</span>
+        </a>
+
+        <a class="tool-card" [routerLink]="'/admin/solicitudes'" aria-label="Solicitudes">
+            <span class="tool-icon" aria-hidden="true"><mat-icon>description</mat-icon></span>
+            <span class="tool-title">Solicitudes</span>
+            <span class="tool-desc">Aprobaciones</span>
+        </a>
+
+        <a class="tool-card" [routerLink]="'/admin/actividades'" aria-label="Actividades">
+            <span class="tool-icon" aria-hidden="true"><mat-icon>search</mat-icon></span>
+            <span class="tool-title">Actividades</span>
+            <span class="tool-desc">Registro y control</span>
+        </a>
+
+        <a class="tool-card" [routerLink]="'/admin/reportes'" aria-label="Reportes">
+            <span class="tool-icon" aria-hidden="true"><mat-icon>assignment</mat-icon></span>
+            <span class="tool-title">Reportes</span>
+            <span class="tool-desc">Indicadores</span>
+        </a>
+    </nav>
 </div>
 
-<!-- El outlet siempre se renderiza -->
+<!-- El outlet siempre se renderiza (fuera del condicional) -->
 <router-outlet></router-outlet>

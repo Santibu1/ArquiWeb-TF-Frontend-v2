@@ -36,11 +36,14 @@
         <span class="spacer"></span>
 
         <!-- Botón de cerrar sesión -->
-        <div class="navbar-actions">
-            <button class="logout-button" [routerLink]="['/login']">
-                <mat-icon>account_circle</mat-icon>
-                <span>Cerrar Sesión</span>
-            </button>
-        </div>
+        <!-- AQUÍ ESTÁ LA MAGIA: Muestra esto SÓLO si estaLogueado() es true -->
+        @if (estaLogueado()) {
+            <div class="navbar-actions">
+                <button class="logout-button" [routerLink]="['/login']">
+                    <mat-icon>account_circle</mat-icon>
+                    <span>Cerrar Sesión</span>
+                </button>
+            </div>
+        }
     </div>
 </nav>

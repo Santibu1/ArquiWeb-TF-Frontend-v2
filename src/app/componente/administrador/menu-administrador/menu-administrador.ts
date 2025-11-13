@@ -9,7 +9,7 @@ import {MatIconModule} from "@angular/material/icon";
   imports: [CommonModule,
       RouterLink,
       RouterModule,
-      RouterLinkActive,MatIconModule],
+      MatIconModule],
   templateUrl: './menu-administrador.html',
   styleUrl: './menu-administrador.css',
 })
@@ -22,7 +22,7 @@ export class MenuAdministrador {
             filter(event => event instanceof NavigationEnd)
         ).subscribe((event: NavigationEnd) => {
             // Mostrar dashboard solo cuando estamos exactamente en /admin
-            this.mostrarDashboard = event.url === '/admin' || event.url === '/admin/';
+            this.mostrarDashboard = event.url === '/admin' || event.urlAfterRedirects  === '/admin/';
         });
     }
 }
