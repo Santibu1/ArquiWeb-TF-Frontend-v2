@@ -32,5 +32,12 @@ export class Navbar {
         if (this.rol === 'ROLE_MODERADOR') es = true;
         return es;
     }
+    // 5. NUEVA FUNCIÓN: Comprueba si el signal tiene CUALQUIER rol
+    estaLogueado(): boolean {
+        // Lee localStorage, igual que tus otras funciones
+        const rolGuardado = localStorage.getItem('rol');
+        // Devuelve true si el rol NO es null (es decir, si existe algo)
+        return rolGuardado !== null;
+    }
 
 }
