@@ -1,12 +1,14 @@
-<div class="user-home-dashboard">
+<app-sub-navbar-usuario></app-sub-navbar-usuario>
+
+<div class="user-home-dashboard" *ngIf="usuarioLogueado; else cargando">
 
     <div class="user-greeting-section">
-        <h1>Bienvenido de nuevo, Luis</h1>
+        <h1>Bienvenido de nuevo, {{ usuarioLogueado.nombreUsuario }}</h1>
 
         <div class="user-stats-card">
             <div class="stat-item">
-                <span class="stat-value">98</span>
-                <span class="stat-label">Puntos disponibles</span>
+                <span class="stat-value">{{ usuarioLogueado.ecobits }}</span>
+                <span class="stat-label">Puntos acumulados</span>
             </div>
             <div class="stat-item">
                 <span class="stat-value">15</span>
@@ -21,7 +23,6 @@
 
     <div class="recent-activities-section">
         <h3>Recientes</h3>
-
         <div class="activity-card">
             <div class="activity-header">
                 <span class="activity-icon"></span> <span class="activity-title">PICHANGAS FUTBOL-VOLEY RELÁMPAGO - SANTIAGO DE SURCO</span>
@@ -62,6 +63,13 @@
             </p>
             <button class="ver-conversacion-btn">Ver Conversación</button>
         </div>
-
     </div>
 </div>
+
+
+<ng-template #cargando>
+    <div class="loading-container">
+        <p *ngIf="!errorCarga">Cargando tu perfil...</p>
+        <p *ngIf="errorCarga" class="error-message">{{ errorCarga }}</p>
+    </div>
+</ng-template>
