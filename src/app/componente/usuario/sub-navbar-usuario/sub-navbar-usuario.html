@@ -1,0 +1,25 @@
+<nav class="sub-navbar">
+
+    <div class="left-menu">
+        <a routerLink="/usuario/home" routerLinkActive="active">Inicio</a>
+        <a routerLink="/usuario/comunidades" routerLinkActive="active">Comunidades</a>
+        <a routerLink="/usuario/estadisticas" routerLinkActive="active">Mis Estadísticas</a>
+        <a routerLink="/usuario/actividades" routerLinkActive="active">Actividades</a>
+        <a routerLink="/usuario/canjear" routerLinkActive="active">Canjear</a>
+        <a routerLink="/usuario/suscripcion" routerLinkActive="active">Suscripción</a>
+    </div>
+
+    <div class="right-menu">
+
+        <!-- ICONO DE PERFIL -->
+        <button class="icon-button" (click)="irPerfil()">
+            <mat-icon>account_circle</mat-icon>
+        </button>
+
+        <!-- CERRAR SESIÓN -->
+        <button class="logout-button" (click)="cerrarSesion()">
+            Cerrar Sesión
+        </button>
+    </div>
+
+</nav>
