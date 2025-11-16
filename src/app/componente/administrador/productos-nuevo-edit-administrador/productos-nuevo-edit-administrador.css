@@ -1,0 +1,41 @@
+/* src/app/componente/administrador/productos-nuevo-edit-administrador/productos-nuevo-edit-administrador.css */
+
+/* Contenedor de la tarjeta (card) */
+.form-card {
+    max-width: 700px;
+    width: 100%;
+    margin: 24px auto; /* Centra la tarjeta en la página */
+}
+
+/* Contenedor del formulario */
+.form-container {
+    display: flex;
+    flex-direction: column; /* Apila los campos verticalmente */
+}
+
+/* Hace que todos los campos de formulario ocupen el ancho completo */
+.form-container mat-form-field {
+    width: 100%;
+    margin-bottom: 5px; /* Pequeño espacio entre campos */
+}
+
+/* --- ¡NUEVO! --- */
+/* Clase para poner campos en la misma fila */
+.form-row {
+    display: flex;
+    gap: 16px; /* Espacio entre los campos de la fila */
+}
+
+/* Hace que los campos en una fila compartan el espacio */
+.form-row mat-form-field {
+    flex: 1; /* Cada campo toma mitad del espacio */
+}
+
+
+/* Contenedor para los botones */
+.action-buttons {
+    display: flex;
+    gap: 10px; /* Espacio entre los botones */
+    margin-top: 20px;
+    justify-content: flex-end; /* Alinea los botones a la derecha */
+}

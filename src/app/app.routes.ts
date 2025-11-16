@@ -20,6 +20,12 @@ import {
 import {
     EmpresasNuevoEditAdministrador
 } from "./componente/administrador/empresas-nuevo-edit-administrador/empresas-nuevo-edit-administrador";
+import {
+    ProductosListarAdministrador
+} from "./componente/administrador/productos-listar-administrador/productos-listar-administrador";
+import {
+    ProductosNuevoEditAdministrador
+} from "./componente/administrador/productos-nuevo-edit-administrador/productos-nuevo-edit-administrador";
 
 export const routes: Routes = [
     // 🔐 LOGIN
@@ -36,6 +42,10 @@ export const routes: Routes = [
             { path: 'empresas', component: EmpresasListarAdministrador },
             { path: 'empresa/nuevo', component: EmpresasNuevoEditAdministrador },
             { path: 'empresa/editar/:id', component: EmpresasNuevoEditAdministrador },
+            { path: 'productos', component: ProductosListarAdministrador },
+            { path: 'producto/nuevo', component: ProductosNuevoEditAdministrador },
+            { path: 'producto/editar/:id', component: ProductosNuevoEditAdministrador },
+
 
             { path: 'usuarios', component: UsuariosListarAdministrador },
             { path: 'reportes', component: ReportesListarAdministradorComponent },
