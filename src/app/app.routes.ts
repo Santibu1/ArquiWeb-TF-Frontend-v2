@@ -26,6 +26,9 @@ import {
 import {
     ProductosNuevoEditAdministrador
 } from "./componente/administrador/productos-nuevo-edit-administrador/productos-nuevo-edit-administrador";
+import {
+    SolicitudesListarAdministrador
+} from "./componente/administrador/solicitudes-listar-administrador/solicitudes-listar-administrador";
 
 export const routes: Routes = [
     // 🔐 LOGIN
@@ -45,7 +48,7 @@ export const routes: Routes = [
             { path: 'productos', component: ProductosListarAdministrador },
             { path: 'producto/nuevo', component: ProductosNuevoEditAdministrador },
             { path: 'producto/editar/:id', component: ProductosNuevoEditAdministrador },
-
+            { path: 'solicitudes', component: SolicitudesListarAdministrador },
 
             { path: 'usuarios', component: UsuariosListarAdministrador },
             { path: 'reportes', component: ReportesListarAdministradorComponent },
