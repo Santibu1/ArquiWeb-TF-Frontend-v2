@@ -1,0 +1,83 @@
+.navbar {
+    background-color: #282C46;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    padding: 0 48px; /* Exactamente 48px = 3rem */
+    height: 64px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.navbar-brand h1 {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 1rem;
+    margin-left: 3rem;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.nav-link.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-weight: 500;
+}
+
+.spacer {
+    flex: 1;
+}
+
+/* Se han eliminado los estilos:
+  .navbar-actions, .logout-button, .logout-button:hover,
+  .logout-button mat-icon
+*/
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar-container {
+        padding: 0 32px; /* 2rem */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-container {
+        padding: 0 24px; /* 1.5rem */
+    }
+
+    .navbar-menu {
+        margin-left: 1.5rem;
+    }
+
+    .nav-link {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.85rem;
+    }
+
+    /* Se eliminó .logout-button span */
+}

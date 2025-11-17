@@ -1,0 +1,60 @@
+<div class="login-wrapper">
+
+    <!-- Contenedor central -->
+    <div class="login-container">
+        <div class="login-content">
+            <h2 class="login-title">INICIAR SESIÓN</h2>
+
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form" novalidate>
+                <!-- Campo Correo -->
+                <div class="form-group">
+                    <label for="email">Correo</label>
+                    <input
+                            id="email"
+                            type="email"
+                            formControlName="email"
+                            placeholder="Ingresar email"
+                            [class.invalid]="
+              loginForm.get('email')?.invalid && loginForm.get('email')?.touched
+            "
+                    />
+                    <div class="error-message" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
+                        <small *ngIf="loginForm.get('email')?.errors?.['required']">El correo es obligatorio.</small>
+                    </div>
+                </div>
+
+                <!-- Campo Contraseña -->
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input
+                            id="password"
+                            type="password"
+                            formControlName="password"
+                            placeholder="*******"
+                            [class.invalid]="
+              loginForm.get('password')?.invalid && loginForm.get('password')?.touched
+            "
+                    />
+                    <div class="error-message" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+                        <small *ngIf="loginForm.get('password')?.errors?.['required']">
+                            La contraseña es obligatoria.
+                        </small>
+                    </div>
+                </div>
+
+                <!-- Botón -->
+                <button type="submit" class="login-btn" [disabled]="loginForm.invalid">
+                    Sign In
+                </button>
+
+                <a routerLink="/registro" class="register-link">Crear Cuenta</a>
+            </form>
+
+            <!-- Logo lateral -->
+            <div class="login-logo">
+                <img src="images/logos/ecochipslogin.jpg" alt="Eco-Chips logo" />
+                <span>¡ECO-CHIPS!</span>
+            </div>
+        </div>
+    </div>
+</div>

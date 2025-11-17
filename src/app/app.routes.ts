@@ -1,26 +1,6 @@
-import { Routes } from '@angular/router';
-
-// --- 1. IMPORTA LOS 3 LAYOUTS ---
-import {AuthLayout} from "./layouts/auth-layout/auth-layout";
-import {UserLayout} from "./layouts/user-layout/user-layout";
-import {AdminLayout} from "./layouts/admin-layout/admin-layout";
-
-
-// --- 2. IMPORTA LAS PÁGINAS DE CADA CARPETA NUEVA ---
-
-// AUTH
-import {Login} from "./componente/auth/login/login";
-import {Registro} from "./componente/auth/registro/registro";
-
-// USUARIO (CLIENTE)
-import {HomeUsuario} from "./componente/usuario/home-usuario/home-usuario";
-// Mueve tus componentes (Inicio, Comunidad, etc.) a la carpeta 'componente/usuario/'
-// y actualiza estas rutas. 'home-usuario' es tu nuevo 'inicio'.
-// import { ComunidadComponent } from './componente/usuario/comunidad/comunidad.component';
-// import { CanjearComponent } from './componente/usuario/canjear/canjear.component';
-// ...etc
-
-// ADMINISTRADOR
+import {Routes} from "@angular/router";
+import {LoginComponent} from "./componente/login-component/login-component";
+import {MenuAdministrador} from "./componente/administrador/menu-administrador/menu-administrador";
 import {
     ActividadesListarAdministradorComponent
 } from "./componente/administrador/actividades-listar-administrador/actividades-listar-administrador";
@@ -28,69 +8,57 @@ import {
     ActividadesNuevoEditAdministradorComponent
 } from "./componente/administrador/actividades-nuevo-edit-administrador/actividades-nuevo-edit-administrador";
 import {
+    UsuariosListarAdministrador
+} from "./componente/administrador/usuarios-listar-administrador/usuarios-listar-administrador";
+import {
     ReportesListarAdministradorComponent
 } from "./componente/administrador/reportes-listar-administrador/reportes-listar-administrador";
-import {MenuAdministrador} from "./componente/administrador/menu-administrador/menu-administrador";
-
-
-
-
-// ...etc
+import {HomeUsuario} from "./componente/usuario/home-usuario/home-usuario";
+import {
+    EmpresasListarAdministrador
+} from "./componente/administrador/empresas-listar-administrador/empresas-listar-administrador";
+import {
+    EmpresasNuevoEditAdministrador
+} from "./componente/administrador/empresas-nuevo-edit-administrador/empresas-nuevo-edit-administrador";
+import {
+    ProductosListarAdministrador
+} from "./componente/administrador/productos-listar-administrador/productos-listar-administrador";
+import {
+    ProductosNuevoEditAdministrador
+} from "./componente/administrador/productos-nuevo-edit-administrador/productos-nuevo-edit-administrador";
 
 export const routes: Routes = [
-    // --- Rutas de Autenticación (sin header/footer) ---
-    {
-        path: 'auth',
-        component: AuthLayout,
-        children: [
-            { path: 'login', component:  Login},
-            { path: 'registro', component: Registro },
-        ]
-    },
+    // 🔐 LOGIN
+    { path: 'login', component: LoginComponent },
 
-    // --- Rutas de Cliente (con header/footer de cliente) ---
-    {
-        path: 'usuario', // Prefijo para todas las rutas de cliente
-        component: UserLayout, // Carga la plantilla de cliente
-        // canActivate: [tuGuardiaDeCliente], // <-- Futuro: seguridad
-        children: [
-            { path: 'inicio', component: HomeUsuario },
-            // { path: 'comunidad', component: ComunidadComponent },
-            // { path: 'canjear', component: CanjearComponent },
-            // ...etc
-
-            // Si solo escriben '/usuario', llévalos a su inicio
-            { path: '', redirectTo: 'inicio', pathMatch: 'full' }
-        ]
-    },
-
-    // 1. RUTA PARA EL DASHBOARD (PANTALLA COMPLETA)
-    // No usa el 'AdminLayout'
+    // 🧭 ADMINISTRADOR
     {
         path: 'admin',
-        component: AdminLayout,
-        // canActivate: [tuGuardiaDeAdmin],
+        component: MenuAdministrador,
         children: [
-            // Esta es tu página de "Herramientas"
-            { path: 'inicio', component: MenuAdministrador },
-
-            // Esta es tu página de "Gestión de Actividades"
             { path: 'actividades', component: ActividadesListarAdministradorComponent },
             { path: 'actividad/nuevo', component: ActividadesNuevoEditAdministradorComponent },
             { path: 'actividad/editar/:id', component: ActividadesNuevoEditAdministradorComponent },
-            { path: 'reportes/empresas', component: ReportesListarAdministradorComponent },
+            { path: 'empresas', component: EmpresasListarAdministrador },
+            { path: 'empresa/nuevo', component: EmpresasNuevoEditAdministrador },
+            { path: 'empresa/editar/:id', component: EmpresasNuevoEditAdministrador },
+            { path: 'productos', component: ProductosListarAdministrador },
+            { path: 'producto/nuevo', component: ProductosNuevoEditAdministrador },
+            { path: 'producto/editar/:id', component: ProductosNuevoEditAdministrador },
 
-            // Redirección por si entran a '/admin'
-            { path: '', redirectTo: 'inicio', pathMatch: 'full' }
+
+            { path: 'usuarios', component: UsuariosListarAdministrador },
+            { path: 'reportes', component: ReportesListarAdministradorComponent },
+            //{ path: '', redirectTo: 'actividades', pathMatch: 'full' }
         ]
     },
 
+    // 👤 USUARIO
+    { path: 'usuario/home', component: HomeUsuario },
 
+    // 🏠 RUTA POR DEFECTO
+    { path: '', redirectTo: 'login', pathMatch: 'full' },
 
-    // --- Redirección por defecto ---
-    // Si alguien entra a la app, que lo mande al login
-    { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
-
-    // Si no encuentra la ruta, al login
-    { path: '**', redirectTo: 'auth/login' }
+    // ❌ RUTA NO ENCONTRADA
+    { path: '**', redirectTo: 'login', pathMatch: 'full' }
 ];

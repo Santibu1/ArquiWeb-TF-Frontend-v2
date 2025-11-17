@@ -1,0 +1,40 @@
+<nav class="navbar">
+    <div class="navbar-container">
+        <!-- Logo/Título -->
+        <div class="navbar-brand">
+            <h1>Eco-Chips</h1>
+        </div>
+
+        <!-- Menú de navegación para Administrador -->
+        @if (esAdministrador()) {
+            <div class="navbar-menu">
+                <a [routerLink]="['/admin']"
+                   routerLinkActive="active"
+                   [routerLinkActiveOptions]="{exact: true}"
+                   class="nav-link">
+                    Ventana Principal
+                </a>
+                <a [routerLink]="['/admin/actividades']"
+                   routerLinkActive="active"
+                   class="nav-link">
+                    Gestión de Actividades
+                </a>
+            </div>
+        }
+
+        <!-- Menú de navegación para Cliente/Moderador -->
+        @if (esCliente() || esModerador()) {
+            <div class="navbar-menu">
+                <a [routerLink]="['/usuario/home']"
+                   routerLinkActive="active"
+                   class="nav-link">
+                    Inicio Usuario
+                </a>
+            </div>
+        }
+
+        <span class="spacer"></span>
+
+
+    </div>
+</nav>

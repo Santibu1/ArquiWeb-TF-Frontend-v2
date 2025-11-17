@@ -1,0 +1,211 @@
+/* src/app/login/login.component.css */
+
+/* --- Layout General (ya no tiene min-height: 100vh) --- */
+.login-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #f8f9fa; /* Un fondo ligeramente gris para el body, si es que no lo tiene ya el main-content global */
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+
+/* --- Contenedor central (centra el login-content) --- */
+.login-container {
+    flex: 1; /* Esto hace que el contenedor crezca y empuje el footer hacia abajo */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Esto centrará verticalmente el login-content */
+    padding: 3rem 1rem;
+    width: 100%;
+}
+
+/* --- Contenedor de la "Tarjeta" de Login --- */
+.login-content {
+    position: relative;
+    max-width: 700px; /* Reducimos un poco el max-width para que no sea demasiado ancho */
+    width: 100%;
+    text-align: left;
+
+    /* Padding más equilibrado y consistente */
+    padding: 3.5rem 4rem; /* Aumentamos el padding para más espacio interno */
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+    background-color: #ffffff;
+    /* Margin top y bottom automáticos para centrado vertical si flex:1 no funciona en todos los navegadores */
+    margin: auto;
+}
+
+.login-title {
+    font-size: 2.8rem; /* Un poco más grande para darle más impacto */
+    font-weight: 700;
+    color: #333333;
+    margin-bottom: 2.5rem; /* Más espacio debajo del título */
+    text-align: center;
+}
+
+/* --- Formulario --- */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Más espacio entre los campos */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 1rem; /* Un poco más grande la etiqueta */
+    color: #333333;
+    font-weight: 500;
+    margin-bottom: 0.5rem; /* Más espacio entre etiqueta y campo */
+}
+
+.form-group input {
+    background-color: #f0f0f0; /* Color de fondo más claro para los inputs */
+    border: 1px solid #ced4da; /* Borde sutil para los inputs */
+    height: 48px; /* Inputs más altos */
+    border-radius: 8px; /* Bordes más redondeados para los inputs */
+    padding: 0 1rem; /* Más padding interno para los inputs */
+    font-size: 1.1rem; /* Texto más grande dentro de los inputs */
+    color: #343a40;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.form-group input:focus {
+    border-color: #28a745; /* Borde verde al enfocar */
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+/* --- Estado de error --- */
+.form-group input.invalid {
+    border: 1px solid #dc3545; /* Color de error más estándar */
+    background-color: #ffeaea;
+}
+
+.error-message {
+    margin-top: 5px;
+    color: #dc3545;
+    font-size: 0.9rem;
+}
+
+.error-message small {
+    display: block;
+    line-height: 1.2;
+}
+
+/* --- Botón --- */
+.login-btn {
+    background-color: #28a745; /* Botón verde para mejor contraste y "eco" */
+    color: white; /* Texto blanco en el botón verde */
+    font-size: 1.2rem; /* Botón de texto un poco más grande */
+    font-weight: 600;
+    border: none; /* Quitamos el borde, el color de fondo ya lo define */
+    border-radius: 8px; /* Bordes redondeados consistentes */
+    width: 250px; /* Botón más ancho */
+    height: 55px; /* Botón más alto */
+    margin: 2.5rem auto 0; /* Más espacio arriba del botón */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    box-shadow: 0 4px 10px rgba(40, 167, 69, 0.2); /* Sombra para el botón */
+}
+
+.login-btn:hover {
+    background-color: #218838; /* Verde más oscuro al pasar el ratón */
+    transform: translateY(-3px); /* Efecto más pronunciado */
+    box-shadow: 0 6px 15px rgba(40, 167, 69, 0.3);
+}
+
+.login-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #6c757d; /* Color gris para deshabilitado */
+    box-shadow: none;
+    transform: translateY(0);
+}
+
+/* --- Link de registro --- */
+.register-link {
+    text-align: center;
+    display: block;
+    margin-top: 1.5rem; /* Más espacio arriba */
+    color: #007bff; /* Azul estándar para links */
+    font-size: 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.register-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* --- Logo derecho --- */
+.login-logo {
+    position: absolute;
+    position: absolute;
+    top: 0;   /* 1. Pega el logo al borde superior de la tarjeta */
+    right: 0; /* 2. Pega el logo al borde derecho de la tarjeta */
+
+    /* 3. Mueve el logo 40% de SU PROPIO TAMAÑO hacia la derecha
+          y 40% de SU PROPIO TAMAÑO hacia arriba. */
+    transform: translate(40%, -40%);
+
+    text-align: center;
+    width: 160px; /* Logo un poco más grande */
+    height: 160px;
+    border-radius: 50%;
+    background-color: #ffffff; /* Fondo blanco para el círculo del logo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.15); /* Sombra más fuerte */
+    overflow: hidden;
+}
+
+.login-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Cambiado a contain para asegurar que el logo completo se vea sin recortes si es una imagen con mucho espacio */
+    border-radius: 50%;
+    display: block;
+}
+
+.login-logo span {
+    display: none; /* Aseguramos que el span esté oculto */
+}
+
+/* Responsive para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .login-content {
+        max-width: 90%; /* Permite que el contenido ocupe más espacio en pantallas pequeñas */
+        padding: 2.5rem 2rem; /* Reduce el padding */
+    }
+
+    .login-title {
+        font-size: 2.2rem;
+    }
+
+    .login-logo {
+        position: static; /* Quita la posición absoluta para móviles */
+        margin: 0 auto 2rem; /* Centra el logo encima del formulario */
+        width: 120px;
+        height: 120px;
+        box-shadow: none; /* Quita la sombra en móviles */
+    }
+
+    .login-form {
+        margin-top: 2rem; /* Espacio extra si el logo se mueve arriba */
+    }
+
+    .login-btn {
+        width: 100%; /* Botón de ancho completo en móviles */
+        max-width: 250px; /* Limita un poco para que no sea excesivo */
+    }
+}
+
+/* El .login-footer local se eliminó porque ahora usas el footer global */

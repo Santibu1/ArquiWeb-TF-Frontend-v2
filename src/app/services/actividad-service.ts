@@ -4,7 +4,7 @@ import {inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, Subject} from 'rxjs';
 import {Actividad} from '../model/actividad';
-import {environment} from "../environments/environment";
+import {environment} from "../../environments/environment";
 
 @Injectable({
     providedIn: 'root'
@@ -26,7 +26,7 @@ export class ActividadService {
 
     // GET (Listar por ID)
     listId(id: number): Observable<Actividad>{
-        return this.httpClient.get<Actividad>('${this.url}/listarActividadesPorID/${id}');
+        return this.httpClient.get<Actividad>(`${this.url}/listarActividadesPorID/${id}`);
     }
 
     // POST (Insertar)

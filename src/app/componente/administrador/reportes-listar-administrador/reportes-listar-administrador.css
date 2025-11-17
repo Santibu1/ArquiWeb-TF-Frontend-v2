@@ -5,6 +5,36 @@
     margin: auto;
     max-width: 1400px;
 }
+.header-section {
+    background-color: white;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.back-button {
+    background-color: transparent;
+    border: none;
+    color: #2c3e50;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.back-button:hover {
+    color: #27ae60;
+}
+
+.back-button mat-icon {
+    font-size: 20px;
+}
+
 
 h1 {
     font-size: 2rem;

@@ -1,0 +1,92 @@
+<mat-card class="form-card">
+
+    <mat-card-title>
+        {{ edicion ? 'Editar Producto' : 'Nuevo Producto' }}
+    </mat-card-title>
+
+    <mat-card-content>
+
+        <form [formGroup]="form" class="form-container" (ngSubmit)="onSubmit()">
+
+            <mat-form-field appearance="fill">
+                <mat-label>Nombre del Producto</mat-label>
+                <input matInput formControlName="nombre" placeholder="Ingrese el nombre">
+                <mat-error *ngIf="form.get('nombre')?.hasError('required')">
+                    El nombre es requerido.
+                </mat-error>
+            </mat-form-field>
+
+            <div class="form-row">
+                <mat-form-field appearance="fill">
+                    <mat-label>Precio (S/.)</mat-label>
+                    <input matInput type="number" formControlName="precio" placeholder="10.50">
+                    <mat-error *ngIf="form.get('precio')?.hasError('required')">
+                        El precio es requerido.
+                    </mat-error>
+                    <mat-error *ngIf="form.get('precio')?.hasError('min')">
+                        El precio mínimo es 1.
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Stock</mat-label>
+                    <input matInput type="number" formControlName="stock" placeholder="100">
+                    <mat-error *ngIf="form.get('stock')?.hasError('required')">
+                        El stock es requerido.
+                    </mat-error>
+                    <mat-error *ngIf="form.get('stock')?.hasError('min')">
+                        El stock no puede ser negativo.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="form-row">
+                <mat-form-field appearance="fill">
+                    <mat-label>Categoría</mat-label>
+                    <mat-select formControlName="categoria">
+                        <mat-option *ngFor="let cat of categoriasProducto" [value]="cat">
+                            {{cat}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="form.get('categoria')?.hasError('required')">
+                        La categoría es requerida.
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Estado</mat-label>
+                    <mat-select formControlName="estado">
+                        <mat-option *ngFor="let est of estadosProducto" [value]="est">
+                            {{est}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="form.get('estado')?.hasError('required')">
+                        El estado es requerido.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Empresa</mat-label>
+                <mat-select formControlName="empresaId">
+                    <mat-option *ngFor="let emp of empresas" [value]="emp.empresaId">
+                        {{emp.nombre}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('empresaId')?.hasError('required')">
+                    La empresa es requerida.
+                </mat-error>
+            </mat-form-field>
+
+            <div class="action-buttons">
+                <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">
+                    {{ edicion ? 'Actualizar' : 'Guardar' }}
+                </button>
+                <button type="button" mat-button (click)="cancelar()">
+                    Cancelar
+                </button>
+            </div>
+
+        </form>
+    </mat-card-content>
+</mat-card>
