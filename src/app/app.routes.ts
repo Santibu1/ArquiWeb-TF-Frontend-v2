@@ -29,6 +29,10 @@ import {
 import {
     SolicitudesListarAdministrador
 } from "./componente/administrador/solicitudes-listar-administrador/solicitudes-listar-administrador";
+import {
+    ComunidadesListarAdministradorComponent
+} from "./componente/administrador/comunidades-listar-administrador/comunidades-listar-administrador";
+import {RegisterComponent} from "./componente/register-component/register-component";
 
 export const routes: Routes = [
     // 🔐 LOGIN
@@ -49,6 +53,7 @@ export const routes: Routes = [
             { path: 'producto/nuevo', component: ProductosNuevoEditAdministrador },
             { path: 'producto/editar/:id', component: ProductosNuevoEditAdministrador },
             { path: 'solicitudes', component: SolicitudesListarAdministrador },
+            {path : 'comunidades', component: ComunidadesListarAdministradorComponent},
 
             { path: 'usuarios', component: UsuariosListarAdministrador },
             { path: 'reportes', component: ReportesListarAdministradorComponent },
@@ -58,7 +63,7 @@ export const routes: Routes = [
 
     // 👤 USUARIO
     { path: 'usuario/home', component: HomeUsuario },
-
+    {path : 'registro' , component: RegisterComponent},
     // 🏠 RUTA POR DEFECTO
     { path: '', redirectTo: 'login', pathMatch: 'full' },
 

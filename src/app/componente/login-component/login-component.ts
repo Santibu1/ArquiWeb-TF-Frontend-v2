@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LoginService } from "../../services/login-service";
 import { RequestDto } from "../../model/request-dto";
@@ -9,7 +9,7 @@ import { MatCardModule } from "@angular/material/card";
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
-import {MatIconModule} from "@angular/material/icon";
+import { MatIconModule } from "@angular/material/icon";
 
 @Component({
     selector: 'app-login-component',
@@ -17,6 +17,7 @@ import {MatIconModule} from "@angular/material/icon";
     imports: [
         CommonModule,
         ReactiveFormsModule,
+        RouterModule,
         MatCardModule,
         MatFormFieldModule,
         MatInputModule,
@@ -41,7 +42,7 @@ export class LoginComponent {
 
     ngOnInit() {
         if (localStorage.getItem('token')) {
-            localStorage.clear(); // borra todos los items
+            localStorage.clear();
             console.log("Token e items eliminados");
         }
     }
@@ -54,22 +55,19 @@ export class LoginComponent {
 
             this.loginService.login(requestDto).subscribe({
                 next: (data: ResponseDto) => {
-                    // Guarda el token
                     const token = localStorage.getItem('token');
                     console.log("Token almacenado:", token);
 
-                    // Extrae el rol y elimina "ROLE_" si existe
                     const rolRaw = data.roles[0] || '';
                     const rol = rolRaw.replace('ROLE_', '');
                     localStorage.setItem('rol', rol);
 
-                    // Navegación según rol
                     if (rol === 'ADMINISTRADOR') {
                         this.router.navigate(['/admin']);
                     } else if (rol === 'CLIENTE' || rol === 'MODERADOR') {
                         this.router.navigate(['/usuario/home']);
                     } else {
-                        this.router.navigate(['/login']); // fallback
+                        this.router.navigate(['/login']);
                     }
                 },
                 error: (error: any) => {
@@ -81,5 +79,9 @@ export class LoginComponent {
             alert("Formulario no válido!");
             this.loginForm.markAllAsTouched();
         }
+    }
+
+    navigateToRegister(): void {
+        this.router.navigate(['/registro']);
     }
 }

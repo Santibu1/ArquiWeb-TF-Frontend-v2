@@ -1,3 +1,5 @@
+/* src/app/componente/administrador/menu-administrador/menu-administrador.css */
+
 .admin-shell{
     min-height: calc(100vh - 64px); /* respeta el header global */
     background: #fafbfc;
@@ -5,10 +7,20 @@
     color: #1f2937;
 }
 
+/* --- SECCIÓN MODIFICADA --- */
+/* Ahora es un flex container para alinear título y botón */
 .page-intro{
     max-width: 1280px;
     margin: 0 auto 12px;
+
+    /* Propiedades de Flexbox */
+    display: flex;
+    justify-content: space-between; /* Título a la izq, botón a la der */
+    align-items: center;
+    flex-wrap: wrap; /* Para que se vea bien en móviles */
+    gap: 1rem;       /* Espacio entre título y botón si se apilan */
 }
+
 .page-title{
     margin: 0;
     font-weight: 700;
@@ -20,6 +32,7 @@
     font-size: .95rem;
 }
 
+/* --- ESTILOS ORIGINALES (DE VUELTA) --- */
 .tools-grid{
     max-width: 1280px;
     margin: 48px auto 0; /* antes: 0 auto; agrega 24px arriba */
@@ -63,6 +76,21 @@
 .tool-title{ font-weight: 700; font-size: 1rem; }
 .tool-desc{ font-size: .85rem; color: #6b7280; }
 
+/* --- ESTILO NUEVO --- */
+/* Estilos para el botón de logout */
+.logout-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Espacio entre el ícono y el texto */
+    padding: 0 16px !important;
+    height: 40px;
+    /* Usa el color 'warn' del mat-button, pero podemos forzarlo si es necesario */
+    /* color: #f44336; */
+    /* border-color: #f44336; */
+}
+
+
+/* --- ESTILOS ORIGINALES (DE VUELTA) --- */
 /* Responsive */
 @media (max-width: 1200px){ .tools-grid{ grid-template-columns: repeat(3, minmax(0,1fr)); } }
 @media (max-width: 900px){

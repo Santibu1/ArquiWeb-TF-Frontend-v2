@@ -1,8 +1,16 @@
 <!-- menu-administrador.html -->
 <div class="admin-shell" *ngIf="mostrarDashboard">
     <div class="page-intro">
-        <h1 class="page-title">Ventana principal</h1>
-        <p class="page-subtitle">Accede a los módulos de gestión</p>
+                <div>
+            <h1 class="page-title">Ventana principal</h1>
+            <p class="page-subtitle">Accede a los módulos de gestión</p>
+        </div>
+
+
+        <button mat-stroked-button color="warn" class="logout-button" (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            Cerrar Sesión
+        </button>
     </div>
 
     <nav class="tools-grid" aria-label="Módulos de administración" role="navigation">
