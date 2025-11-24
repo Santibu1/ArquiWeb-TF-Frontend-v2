@@ -1,0 +1,55 @@
+<app-sub-navbar-usuario></app-sub-navbar-usuario>
+<div class="main-container">
+    <div class="banner-header">
+        <h1>ACTIVIDADES DISPONIBLES</h1>
+        <p>Completa tareas diarias y gana EcoBits para canjear premios</p>
+    </div>
+
+    <div class="loading-container" *ngIf="loading">
+        <mat-spinner diameter="50" color="accent"></mat-spinner>
+        <p>Cargando tus misiones de hoy...</p>
+    </div>
+
+    <div class="cards-grid" *ngIf="!loading">
+
+        <div class="activity-card"
+             *ngFor="let act of actividades"
+             [class.card-completed]="isCompletada(act.actividadId!)">
+
+            <div class="points-badge">
+                +{{ act.recompensaActividad }} <span class="pts-text">Bits</span>
+            </div>
+
+            <div class="icon-container">
+                <mat-icon [ngSwitch]="act.categoriaActividad.toLowerCase()" class="big-icon">
+                    <span *ngSwitchCase="'agua'">water_drop</span>
+                    <span *ngSwitchCase="'alimentacion'">restaurant</span>
+                    <span *ngSwitchCase="'energia'">bolt</span>
+                    <span *ngSwitchCase="'reciclaje'">recycling</span>
+                    <span *ngSwitchDefault>spa</span> </mat-icon>
+            </div>
+
+            <div class="card-content">
+                <h3>{{ act.nombreActividad }}</h3>
+                <p class="desc">{{ act.descripcionActividad }}</p>
+            </div>
+
+            <div class="card-action">
+                <button mat-flat-button color="primary"
+                        class="btn-action"
+                        [disabled]="isCompletada(act.actividadId!)"
+                        (click)="onCompletarActividad(act)">
+                    {{ isCompletada(act.actividadId!) ? 'Completado' : 'Realizar' }}
+                </button>
+            </div>
+
+            <div class="completed-overlay" *ngIf="isCompletada(act.actividadId!)">
+                <div class="check-circle">
+                    <mat-icon>check</mat-icon>
+                </div>
+                <span class="text-done">¡Hecho por hoy!</span>
+            </div>
+
+        </div>
+    </div>
+</div>
