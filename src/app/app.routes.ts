@@ -29,6 +29,7 @@ import {
 import {
     SolicitudesListarAdministrador
 } from "./componente/administrador/solicitudes-listar-administrador/solicitudes-listar-administrador";
+import {ListarActividadesUser} from "./componente/usuario/listar-actividades-user/listar-actividades-user";
 
 export const routes: Routes = [
     // 🔐 LOGIN
@@ -58,6 +59,8 @@ export const routes: Routes = [
 
     // 👤 USUARIO
     { path: 'usuario/home', component: HomeUsuario },
+    { path: 'usuario/actividades', component: ListarActividadesUser },
+
 
     // 🏠 RUTA POR DEFECTO
     { path: '', redirectTo: 'login', pathMatch: 'full' },
