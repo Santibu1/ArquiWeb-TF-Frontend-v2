@@ -31,6 +31,10 @@ import {
 } from "./componente/administrador/solicitudes-listar-administrador/solicitudes-listar-administrador";
 import {ListarActividadesUser} from "./componente/usuario/listar-actividades-user/listar-actividades-user";
 import {ListarProductosUser} from "./componente/usuario/listar-productos-user/listar-productos-user";
+import {
+    ComunidadesListarAdministradorComponent
+} from "./componente/administrador/comunidades-listar-administrador/comunidades-listar-administrador";
+import {RegisterComponent} from "./componente/register-component/register-component";
 
 export const routes: Routes = [
     // 🔐 LOGIN
@@ -51,6 +55,7 @@ export const routes: Routes = [
             { path: 'producto/nuevo', component: ProductosNuevoEditAdministrador },
             { path: 'producto/editar/:id', component: ProductosNuevoEditAdministrador },
             { path: 'solicitudes', component: SolicitudesListarAdministrador },
+            {path : 'comunidades', component: ComunidadesListarAdministradorComponent},
 
             { path: 'usuarios', component: UsuariosListarAdministrador },
             { path: 'reportes', component: ReportesListarAdministradorComponent },
@@ -62,6 +67,7 @@ export const routes: Routes = [
     { path: 'usuario/home', component: HomeUsuario },
     { path: 'usuario/actividades', component: ListarActividadesUser },
     { path: 'usuario/productos', component: ListarProductosUser },
+    {path : 'registro' , component: RegisterComponent},
 
 
 

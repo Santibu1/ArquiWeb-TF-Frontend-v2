@@ -1,8 +1,18 @@
 <!-- menu-administrador.html -->
 <div class="admin-shell" *ngIf="mostrarDashboard">
     <div class="page-intro">
-        <h1 class="page-title">Ventana principal</h1>
-        <p class="page-subtitle">Accede a los módulos de gestión</p>
+
+        <div class="title-group">
+            <h1 class="page-title">
+                Ventana principal
+            </h1>
+            <span class="page-subtitle-inline">Accede a los módulos de gestión</span>
+        </div>
+
+        <button mat-stroked-button color="warn" class="logout-button" (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            Cerrar Sesión
+        </button>
     </div>
 
     <nav class="tools-grid" aria-label="Módulos de administración" role="navigation">
@@ -50,5 +60,4 @@
     </nav>
 </div>
 
-<!-- El outlet siempre se renderiza (fuera del condicional) -->
 <router-outlet></router-outlet>

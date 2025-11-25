@@ -41,4 +41,12 @@ export class MenuAdministrador {
             },
         });
     }
+
+    logout(): void {
+        // Limpiamos el token guardado (basado en tu interceptor)
+        sessionStorage.clear();
+
+        // Redirigimos a la página de login
+        this.router.navigate(['/login']);
+    }
 }

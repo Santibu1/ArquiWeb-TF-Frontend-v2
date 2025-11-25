@@ -1,0 +1,116 @@
+
+<div class="login-wrapper">
+
+
+    <div *ngIf="!selectedRole; else registrationForm" class="role-selection-wrapper">
+        <h2 class="role-title">¿Como le gustaría registrarse?</h2>
+
+        <div class="role-button-container">
+            <button class="role-button cliente" (click)="selectRole('CLIENTE')">
+                Cliente
+            </button>
+            <button class="role-button moderador" (click)="selectRole('MODERADOR')">
+                Moderador
+            </button>
+        </div>
+
+        <!-- Enlace para volver al login -->
+        <a routerLink="/login" class="register-link">Volver a Iniciar Sesión</a>
+    </div>
+
+
+    <!--
+      VISTA 2: FORMULARIO DE REGISTRO (se muestra cuando 'selectedRole' TIENE un valor)
+    -->
+    <ng-template #registrationForm>
+        <div class="login-container register-form-container"> <!-- Contenedor blanco -->
+            <div class="login-content">
+
+                <!-- Usamos 'login-form' para reutilizar el CSS que ya tienes -->
+                <form [formGroup]="registerForm" (ngSubmit)="onRegisterSubmit()" class="login-form full-width-form">
+
+                    <!-- Título con botón de "Volver" -->
+                    <div class="form-header">
+                        <button type="button" (click)="goBackToRoleSelection()" class="back-button-form" title="Elegir otro rol">
+                            &larr;
+                        </button>
+                        <h2 class="login-title">Registrar como {{ selectedRole }}</h2>
+                    </div>
+
+                    <!-- CAMPO: Nombre -->
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input id="nombre" type="text" formControlName="nombre" placeholder="Ingresar nombre"
+                               [class.invalid]="registerForm.get('nombre')?.invalid && registerForm.get('nombre')?.touched" />
+                        <div class="error-message" *ngIf="registerForm.get('nombre')?.touched && registerForm.get('nombre')?.invalid">
+                            <small *ngIf="registerForm.get('nombre')?.errors?.['required']">El nombre es obligatorio.</small>
+                        </div>
+                    </div>
+
+                    <!-- CAMPO: Apellido -->
+                    <div class="form-group">
+                        <label for="apellido">Apellido</label>
+                        <input id="apellido" type="text" formControlName="apellido" placeholder="Ingresar apellido"
+                               [class.invalid]="registerForm.get('apellido')?.invalid && registerForm.get('apellido')?.touched" />
+                        <div class="error-message" *ngIf="registerForm.get('apellido')?.touched && registerForm.get('apellido')?.invalid">
+                            <small *ngIf="registerForm.get('apellido')?.errors?.['required']">El apellido es obligatorio.</small>
+                        </div>
+                    </div>
+
+                    <!-- --- CAMPO AÑADIDO: Edad --- -->
+                    <div class="form-group">
+                        <label for="edad">Edad</label>
+                        <input id="edad" type="number" formControlName="edad" placeholder="Ingresa tu edad"
+                               [class.invalid]="registerForm.get('edad')?.invalid && registerForm.get('edad')?.touched" />
+                        <div class="error-message" *ngIf="registerForm.get('edad')?.touched && registerForm.get('edad')?.invalid">
+                            <small *ngIf="registerForm.get('edad')?.errors?.['required']">La edad es obligatoria.</small>
+                            <small *ngIf="registerForm.get('edad')?.errors?.['min']">Debes ser mayor de edad (18+).</small>
+                        </div>
+                    </div>
+
+                    <!-- CAMPO: Correo -->
+                    <div class="form-group">
+                        <label for="email">Correo</label>
+                        <input id="email" type="email" formControlName="email" placeholder="Ingresar email"
+                               [class.invalid]="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" />
+                        <div class="error-message" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid">
+                            <small *ngIf="registerForm.get('email')?.errors?.['required']">El correo es obligatorio.</small>
+                            <small *ngIf="registerForm.get('email')?.errors?.['email']">Formato de correo inválido.</small>
+                        </div>
+                    </div>
+
+                    <!-- CAMPO: Contraseña -->
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <input id="password" type="password" formControlName="password" placeholder="*******"
+                               [class.invalid]="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" />
+                        <div class="error-message" *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid">
+                            <small *ngIf="registerForm.get('password')?.errors?.['required']">La contraseña es obligatoria.</small>
+                        </div>
+                    </div>
+
+                    <!-- CAMPO: Confirmar Contraseña -->
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirmar Contraseña</label>
+                        <input id="confirmPassword" type="password" formControlName="confirmPassword" placeholder="*******"
+                               [class.invalid]="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched" />
+                        <div class="error-message" *ngIf="registerForm.get('confirmPassword')?.touched && registerForm.get('confirmPassword')?.invalid">
+                            <small *ngIf="registerForm.get('confirmPassword')?.errors?.['required']">Debes confirmar la contraseña.</small>
+                        </div>
+                        <div class="error-message" *ngIf="registerForm.hasError('passwordMismatch') && registerForm.get('confirmPassword')?.touched">
+                            <small>Las contraseñas no coinciden.</small>
+                        </div>
+                    </div>
+
+                    <!-- BOTÓN: Registrarse -->
+                    <button type="submit" class="login-btn" [disabled]="registerForm.invalid">
+                        Registrarse
+                    </button>
+
+                </form>
+                <!-- Ya no se muestra el logo, el formulario ocupa todo el espacio -->
+            </div>
+        </div>
+    </ng-template>
+
+</div>

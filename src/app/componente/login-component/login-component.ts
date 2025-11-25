@@ -82,4 +82,7 @@ export class LoginComponent {
             this.loginForm.markAllAsTouched();
         }
     }
+    navigateToRegister(): void {
+        this.router.navigate(['/registro']);
+    }
 }

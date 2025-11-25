@@ -1,0 +1,229 @@
+/* --- ESTILOS PARA register-component.component.css --- */
+/* (Basado en tu HTML más reciente) */
+
+/* Contenedor principal que centra todo y da el fondo gris */
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* (Asumo que el fondo gris claro viene de los estilos globales,
+       pero lo pongo aquí por si acaso) */
+    background-color: #f8f9fa;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+/* =========================================
+   ESTILOS PARA VISTA 1: SELECCIÓN DE ROL
+========================================= */
+
+/* Esta es la tarjeta blanca para la selección de rol */
+.role-selection-wrapper {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 3rem 2.5rem;
+    width: 100%;
+    max-width: 800px; /* Ancho máximo */
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.role-title {
+    font-size: 2.2rem; /* Más grande, como en tu mockup */
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 2.5rem;
+}
+
+.role-button-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap; /* Para pantallas pequeñas */
+}
+
+.role-button {
+    flex: 1; /* Ocupa el espacio disponible */
+    min-width: 250px;
+    padding: 2.5rem 1rem;
+    border: none;
+    border-radius: 25px; /* Bordes bien redondeados */
+    font-size: 2rem;
+    font-weight: 500;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    /* Color verde menta de tu mockup */
+    background-color: #69f0ae;
+    box-shadow: 0 4px 15px rgba(105, 240, 174, 0.4);
+}
+
+.role-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(105, 240, 174, 0.5);
+}
+
+.register-link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.register-link:hover {
+    text-decoration: underline;
+}
+
+/* =========================================
+   ESTILOS PARA VISTA 2: FORMULARIO
+========================================= */
+
+/* Contenedor blanco del formulario, lo hacemos más angosto */
+.login-container.register-form-container {
+    max-width: 500px;
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.login-content {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-form.full-width-form {
+    width: 100%;
+}
+
+.form-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.back-button-form {
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #555;
+    /* --- AÑADIDO: Levanta el botón --- */
+    position: relative;
+    z-index: 2;
+    /* --- LÍNEAS MODIFICADAS --- */
+    font-size: inherit; /* Usar el tamaño de ícono por defecto */
+    line-height: normal; /* Usar el normal */
+}
+.back-button-form:hover {
+    background-color: #f4f4f4;
+}
+
+.form-header .login-title {
+    flex: 1;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    /* Mueve el título para compensar el botón */
+    margin-left: -40px;
+}
+
+/* Estilos de formulario (reutilizados de tu login) */
+.form-group {
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+    font-size: 1rem;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #27ae60;
+}
+
+/* Clase .invalid de tu HTML */
+.form-group input.invalid {
+    border-color: #e74c3c;
+    background-color: #fff9f9;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+/* Botones (reutilizados de tu login) */
+.login-btn {
+    width: 100%;
+    padding: 0.85rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: #27ae60;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.login-btn:hover {
+    background-color: #218838;
+}
+
+.login-btn:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+.cancel-btn {
+    width: 100%;
+    padding: 0.85rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.2s ease;
+    color: #333;
+    background-color: #f0f0f0;
+}
+
+.cancel-btn:hover {
+    background-color: #e0e0e0;
+}
