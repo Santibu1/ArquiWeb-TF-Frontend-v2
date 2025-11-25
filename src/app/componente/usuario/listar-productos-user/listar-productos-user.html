@@ -1,0 +1,93 @@
+<app-sub-navbar-usuario></app-sub-navbar-usuario>
+<div class="main-container">
+
+    <div class="header-section">
+        <h1>Canjear Recompensas</h1>
+        <p>Usa tus EcoBits para obtener productos sostenibles de nuestras empresas aliadas.</p>
+
+        <div class="filters-bar">
+            <button mat-icon-button color="warn" (click)="limpiarFiltros()" matTooltip="Limpiar filtros">
+                <mat-icon>filter_alt_off</mat-icon>
+            </button>
+
+            <button mat-stroked-button color="primary" (click)="verHistorial()" style="border-radius: 20px;">
+                <mat-icon>receipt_long</mat-icon>
+                Historial
+            </button>
+
+            <div class="balance-display" *ngIf="usuarioActual">
+            </div>
+
+            <mat-form-field appearance="outline" class="search-field">
+                <mat-label>Buscar producto...</mat-label>
+                <input matInput [(ngModel)]="filtroTexto" (keyup)="aplicarFiltros()" placeholder="Ej. Proteína">
+                <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="select-field">
+                <mat-label>Filtrar por Empresa</mat-label>
+                <mat-select [(ngModel)]="filtroEmpresaId" (selectionChange)="aplicarFiltros()">
+                    <mat-option [value]="null">-- Todas --</mat-option>
+                    <mat-option *ngFor="let emp of empresas" [value]="emp.empresaId">
+                        {{ emp.nombre }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <button mat-icon-button color="warn" (click)="limpiarFiltros()" matTooltip="Limpiar filtros">
+                <mat-icon>filter_alt_off</mat-icon>
+            </button>
+
+            <div class="balance-display" *ngIf="usuarioActual">
+                <span>Tu Saldo:</span>
+                <strong>{{ usuarioActual.ecobits }} Bits</strong>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="loading-container" *ngIf="loading">
+        <mat-spinner diameter="50"></mat-spinner>
+    </div>
+
+    <div class="products-grid" *ngIf="!loading">
+
+        <div class="no-results" *ngIf="productosFiltrados.length === 0">
+            <mat-icon>inventory_2</mat-icon>
+            <p>No encontramos productos con esos filtros.</p>
+        </div>
+
+        <div class="product-card" *ngFor="let prod of productosFiltrados">
+
+            <div class="img-container">
+                <img *ngIf="prod.urlImagen"
+                     [src]="prod.urlImagen"
+                     alt="{{ prod.nombre }}"
+                     class="product-img"
+                     (error)="prod.urlImagen = ''"> <mat-icon *ngIf="!prod.urlImagen" class="product-icon">
+                shopping_bag
+            </mat-icon>
+            </div>
+
+            <div class="card-content">
+                <h3>{{ prod.nombre }}</h3>
+                <span class="category-badge">{{ prod.categoria }}</span>
+
+                <div class="price-row">
+                    <span class="price">{{ prod.precio }} Bits</span>
+                    <span class="stock" [class.low-stock]="prod.stock < 5">
+            Stock: {{ prod.stock }}
+          </span>
+                </div>
+
+                <button mat-raised-button color="primary" class="btn-canje"
+                        [disabled]="usuarioActual && (usuarioActual.ecobits < prod.precio || prod.stock <= 0)"
+                        (click)="onCanjear(prod)">
+                    {{ prod.stock <= 0 ? 'Agotado' : 'CANJEAR' }}
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+</div>

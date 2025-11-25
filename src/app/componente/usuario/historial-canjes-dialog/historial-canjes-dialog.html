@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>
+    <mat-icon class="title-icon">history</mat-icon>
+    Tu Historial de Canjes
+</h2>
+
+<mat-dialog-content class="mat-typography content-area">
+
+    <div class="loading-box" *ngIf="loading">
+        <mat-spinner diameter="40"></mat-spinner>
+        <p>Cargando transacciones...</p>
+    </div>
+
+    <div class="empty-state" *ngIf="!loading && historial.length === 0">
+        <mat-icon class="empty-icon">receipt_long</mat-icon>
+        <p>Aún no has canjeado recompensas.</p>
+    </div>
+
+    <div class="history-list" *ngIf="!loading && historial.length > 0">
+
+        <div class="history-item" *ngFor="let item of historial">
+            <div class="item-img">
+                <img *ngIf="item.urlImagen" [src]="item.urlImagen" alt="Producto" (error)="item.urlImagen=''">
+                <mat-icon *ngIf="!item.urlImagen">shopping_bag</mat-icon>
+            </div>
+
+            <div class="item-info">
+                <h4>{{ item.producto }}</h4>
+                <span class="date">{{ item.fecha | date:'medium' }}</span>
+            </div>
+
+            <div class="item-price">
+                -{{ item.ecobitsUtilizados }} Bits
+            </div>
+        </div>
+
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button (click)="cerrar()">Cerrar</button>
+</mat-dialog-actions>
