@@ -5,5 +5,6 @@ export class Producto {
     precio: number;
     stock: number;
     estado: string;
+    urlImagen: string;
     empresaId: number;
 }

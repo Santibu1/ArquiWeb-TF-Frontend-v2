@@ -30,6 +30,7 @@ import {
     SolicitudesListarAdministrador
 } from "./componente/administrador/solicitudes-listar-administrador/solicitudes-listar-administrador";
 import {ListarActividadesUser} from "./componente/usuario/listar-actividades-user/listar-actividades-user";
+import {ListarProductosUser} from "./componente/usuario/listar-productos-user/listar-productos-user";
 
 export const routes: Routes = [
     // 🔐 LOGIN
@@ -60,6 +61,8 @@ export const routes: Routes = [
     // 👤 USUARIO
     { path: 'usuario/home', component: HomeUsuario },
     { path: 'usuario/actividades', component: ListarActividadesUser },
+    { path: 'usuario/productos', component: ListarProductosUser },
+
 
 
     // 🏠 RUTA POR DEFECTO
