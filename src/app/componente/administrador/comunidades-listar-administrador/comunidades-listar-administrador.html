@@ -1,0 +1,77 @@
+<div class="container">
+    <div class="header-section">
+        <button class="back-button" [routerLink]="['/admin']">
+            <mat-icon>arrow_back</mat-icon>
+            <span>Volver al Menú</span>
+        </button>
+        <h1>Gestión de Comunidades</h1>
+    </div>
+
+    <div class="content-section">
+        <div class="table-header"></div>
+
+        <div class="mat-elevation-z8">
+            <!-- USAR mat-table en lugar de table -->
+            <mat-table [dataSource]="dataSource" matSort>
+
+                <ng-container matColumnDef="idComunidad">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.idComunidad}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="nombre">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.nombre}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="ubicacion">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Ubicación </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.ubicacion}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="estado">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.estado}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="acciones">
+                    <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+                    <mat-cell *matCellDef="let element" class="action-buttons-cell">
+
+                        <button mat-icon-button color="warn" (click)="eliminarComunidad(element.idComunidad)" title="Eliminar">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+
+                        <button mat-icon-button color="accent" (click)="suspenderComunidad(element.idComunidad)" title="Suspender">
+                            <mat-icon>pause_circle</mat-icon>
+                        </button>
+
+                        <button *ngIf="element.estado === 'Activo'" mat-icon-button color="primary" (click)="toggleEstado(element)" title="Desactivar">
+                            <mat-icon>toggle_off</mat-icon>
+                        </button>
+
+                        <button *ngIf="element.estado !== 'Activo'" mat-icon-button class="activate-icon" (click)="toggleEstado(element)" title="Activar">
+                            <mat-icon>toggle_on</mat-icon>
+                        </button>
+
+                    </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+                <tr class="mat-row" *matNoDataRow>
+                    <td class="mat-cell" [colSpan]="displayedColumns.length">
+                        No se encontraron datos.
+                    </td>
+                </tr>
+
+            </mat-table>
+
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                           showFirstLastButtons
+                           aria-label="Seleccionar página">
+            </mat-paginator>
+        </div>
+    </div>
+</div>
