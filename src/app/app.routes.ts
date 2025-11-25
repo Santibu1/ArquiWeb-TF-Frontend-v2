@@ -29,10 +29,11 @@ import {
 import {
     SolicitudesListarAdministrador
 } from "./componente/administrador/solicitudes-listar-administrador/solicitudes-listar-administrador";
-import {
-    ComunidadesListarAdministradorComponent
+import {ListarActividadesUser} from "./componente/usuario/listar-actividades-user/listar-actividades-user";
+import {ListarProductosUser} from "./componente/usuario/listar-productos-user/listar-productos-user";
+import { ComunidadesListarAdministradorComponent
 } from "./componente/administrador/comunidades-listar-administrador/comunidades-listar-administrador";
-import {RegisterComponent} from "./componente/register-component/register-component";
+import {RegisterComponent}  from "./componente/register-component/register-component";
 
 export const routes: Routes = [
     // 🔐 LOGIN
@@ -63,6 +64,11 @@ export const routes: Routes = [
 
     // 👤 USUARIO
     { path: 'usuario/home', component: HomeUsuario },
+    { path: 'usuario/actividades', component: ListarActividadesUser },
+    { path: 'usuario/productos', component: ListarProductosUser },
+
+
+
     {path : 'registro' , component: RegisterComponent},
     // 🏠 RUTA POR DEFECTO
     { path: '', redirectTo: 'login', pathMatch: 'full' },

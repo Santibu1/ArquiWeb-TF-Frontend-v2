@@ -1,0 +1,149 @@
+/* Contenedor Principal */
+.main-container {
+    padding: 20px;
+    background-color: #fdfdfd;
+    min-height: 100vh;
+}
+
+/* Banner Estilizado */
+.banner-header {
+    background: linear-gradient(135deg, #69f0ae 0%, #00e676 100%); /* Verde Eco */
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 0 0 40px 40px; /* Redondeado abajo */
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(0, 230, 118, 0.3);
+}
+
+.banner-header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #1b5e20;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.banner-header p {
+    color: #2e7d32;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+/* Spinner */
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    color: #666;
+}
+
+/* GRID Responsive */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* TARJETA INDIVIDUAL */
+.activity-card {
+    position: relative; /* Para el overlay */
+    background-color: #f0f0f0; /* Gris suave del mockup */
+    border-radius: 40px; /* Tu requerimiento específico */
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Para que el overlay no se salga */
+    border: 2px solid transparent;
+}
+
+/* Efecto Hover solo si no está completada */
+.activity-card:not(.card-completed):hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-color: #69f0ae;
+    background-color: #ffffff;
+}
+
+/* Badge de Puntos */
+.points-badge {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: #2e7d32;
+}
+.pts-text { font-size: 0.8rem; font-weight: normal; }
+
+/* Icono */
+.icon-container {
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+.big-icon {
+    transform: scale(3.5); /* Icono Grande */
+    color: #424242;
+    margin: 10px;
+}
+
+/* Textos */
+.card-content h3 {
+    margin: 10px 0 5px 0;
+    font-weight: 700;
+    color: #333;
+}
+.desc {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 20px;
+    min-height: 40px; /* Altura mínima para alinear botones */
+}
+
+/* Botón */
+.btn-action {
+    width: 100%;
+    border-radius: 20px !important;
+    padding: 22px !important; /* Más alto */
+    font-size: 1.1rem;
+}
+
+/* --- ESTADO COMPLETADO (OVERLAY) --- */
+.completed-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(255, 255, 255, 0.85); /* Blanco semitransparente */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    backdrop-filter: blur(2px);
+}
+
+.check-circle {
+    background-color: #4caf50;
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.4);
+}
+
+.check-circle mat-icon {
+    transform: scale(1.5);
+}
+
+.text-done {
+    font-weight: 800;
+    color: #2e7d32;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
