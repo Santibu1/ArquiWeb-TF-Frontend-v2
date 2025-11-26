@@ -1,0 +1,99 @@
+<app-sub-navbar-usuario></app-sub-navbar-usuario>
+<div class="suscripcion-container">
+    <header class="header">
+        <h1>Elige tu Plan de Suscripción</h1>
+        <p>Desbloquea todos los beneficios de la comunidad Eco-Chips y aumenta tus puntos de racha.</p>
+    </header>
+
+    <div class="plans-grid">
+
+        <mat-card class="plan-card plan-semanal">
+            <mat-card-header class="card-header-content">
+                <mat-card-title>Plan Semanal</mat-card-title>
+                <mat-card-subtitle>7 días</mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-content>
+                <div class="price-display">
+                    <span class="price-big">S/ 5.00</span>
+                    <span class="price-small">/ semana</span>
+                </div>
+
+                <ul class="benefit-list">
+                    <li><mat-icon class="check-icon">check_circle</mat-icon> Acceso a todos los eventos</li>
+                    <li><mat-icon class="check-icon">check_circle</mat-icon> Notificaciones de actividades recientes</li>
+                    <li><mat-icon class="check-icon">check_circle</mat-icon> Puntos de racha diarios limitados</li>
+                </ul>
+            </mat-card-content>
+
+            <mat-card-actions>
+                <button mat-raised-button [routerLink]="['/usuario/suscripcion-metodo-pago']">
+                        <!-------class="select-button select-button-semanal"
+                        (click)="seleccionarPlan('Plan Semanal')">------->
+                    Seleccionar Plan
+                </button>
+            </mat-card-actions>
+        </mat-card>
+
+        <mat-card class="plan-card plan-mensual">
+            <mat-card-header class="card-header-content">
+                <mat-card-title>Plan Mensual</mat-card-title>
+                <mat-card-subtitle>30 días</mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-content>
+                <div class="price-display">
+                    <span class="price-big">S/ 18.00</span>
+                    <span class="price-small">/ mes</span>
+                </div>
+
+                <ul class="benefit-list">
+                    <li><mat-icon class="check-icon">check_circle</mat-icon> Acceso ilimitado a eventos premium</li>
+                    <li><mat-icon class="check-icon">check_circle</mat-icon> Multiplicador x1.5 en puntos de racha</li>
+                    <li><mat-icon class="check-icon">check_circle</mat-icon> Descuentos en productos Eco-Chips</li>
+                    <li><mat-icon class="check-icon">check_circle</mat-icon> Prioridad en registro de actividades</li>
+                </ul>
+            </mat-card-content>
+
+            <mat-card-actions>
+                <button mat-raised-button [routerLink]="['/usuario/suscripcion-metodo-pago']">
+                        <!-------class="select-button select-button-mensual"
+                        (click)="seleccionarPlan('Plan Mensual')">------->
+                    Seleccionar Plan
+                </button>
+
+            </mat-card-actions>
+        </mat-card>
+
+        <mat-card class="plan-card plan-anual">
+            <mat-card-header class="card-header-content">
+                <mat-card-title>Plan Anual</mat-card-title>
+                <mat-card-subtitle>12 meses (Ahorro del 20%)</mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-content>
+                <div class="price-display">
+                    <span class="price-big">S/ 180.00</span>
+                    <span class="price-small">/ año</span>
+                </div>
+
+                <ul class="benefit-list">
+                    <li><mat-icon class="check-icon">check_circle</mat-icon> Todos los beneficios del Plan Mensual</li>
+                    <li><mat-icon class="check-icon">check_circle</mat-icon> Multiplicador x2.0 en puntos de racha</li>
+                    <li><mat-icon class="check-icon">check_circle</mat-icon> Acceso anticipado a nuevas funcionalidades</li>
+                    <li><mat-icon class="check-icon">check_circle</mat-icon> Insignia de Suscriptor VIP</li>
+                    <li><mat-icon class="check-icon">check_circle</mat-icon> Soporte dedicado 24/7</li>
+                </ul>
+            </mat-card-content>
+
+            <mat-card-actions>
+                <button mat-raised-button [routerLink]="['/usuario/suscripcion-metodo-pago']">
+                        <!--------class="select-button select-button-anual"
+                        (click)="seleccionarPlan('Plan Anual')"------->
+                    Seleccionar Plan
+                </button>
+            </mat-card-actions>
+        </mat-card>
+
+    </div>
+</div>

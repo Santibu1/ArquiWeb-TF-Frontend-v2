@@ -37,6 +37,8 @@ import {
 import {RegisterComponent} from "./componente/register-component/register-component";
 import {ListarComunidadesUser} from "./componente/usuario/listar-comunidades-user/listar-comunidades-user";
 import {ComunidadUser} from "./componente/usuario/comunidad-user/comunidad-user";
+import {SuscripcionUsuario} from "./componente/usuario/suscripcion-usuario/suscripcion-usuario";
+import {SuscripcionMetodoPago} from "./componente/usuario/suscripcion-metodo-pago/suscripcion-metodo-pago";
 
 export const routes: Routes = [
     // 🔐 LOGIN
@@ -72,6 +74,8 @@ export const routes: Routes = [
     { path : 'registro' , component: RegisterComponent },
     { path: 'usuario/comunidades', component: ListarComunidadesUser },
     { path: 'usuario/comunidad/chat', component: ComunidadUser },
+    { path: 'usuario/suscripcion', component: SuscripcionUsuario},
+    { path: 'usuario/suscripcion-metodo-pago', component: SuscripcionMetodoPago},
 
 
     // 🏠 RUTA POR DEFECTO
