@@ -1,0 +1,193 @@
+/* Variables de color para sinergia con el entorno (Eco-Chips: Verde oscuro, Azul) */
+:root {
+    --color-primary: #3f51b5; /* Azul Material (usado en encabezado) */
+    --color-text-dark: #333333;
+    --color-text-subtle: #616161;
+}
+
+/* ------------------ BASE Y CONTENEDOR ------------------ */
+.suscripcion-container {
+    padding: 60px 30px; /* Mayor espaciado */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ------------------ ENCABEZADO ------------------ */
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.header h1 {
+    font-size: 2.8em;
+    color: var(--color-text-dark);
+    margin-bottom: 15px;
+    font-weight: 600; /* Fuente semigruesa */
+}
+
+.header p {
+    color: var(--color-text-subtle);
+    font-size: 1.2em;
+}
+
+/* ------------------ GRID DE PLANES (CORRECCIÓN A FILA) ------------------ */
+.plans-grid {
+    display: flex;
+    justify-content: center; /* Centra el grupo de tarjetas */
+    align-items: stretch; /* Asegura que todas las tarjetas tengan la misma altura */
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* ------------------ CARD BASE ------------------ */
+.plan-card {
+    display: flex;
+    flex-direction: column; /* Contenido interno en columna */
+    width: 300px; /* Ancho fijo para las tarjetas */
+    min-height: 500px; /* Altura mínima para una apariencia uniforme */
+    padding: 30px 20px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    text-align: left;
+}
+
+.plan-card:hover {
+    transform: translateY(-8px); /* Elevación sutil al pasar el mouse */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-header-content {
+    padding: 0;
+    margin-bottom: 20px;
+    display: block;
+}
+
+mat-card-title {
+    font-size: 1.6em !important;
+    font-weight: 700 !important;
+    margin-bottom: 5px !important;
+}
+
+mat-card-subtitle {
+    color: var(--color-text-subtle) !important;
+    font-size: 1em !important;
+    margin-bottom: 0 !important;
+}
+
+/* ------------------ PRECIO ------------------ */
+.price-display {
+    margin: 20px 0 40px 0;
+    line-height: 1;
+    text-align: center; /* Centramos el precio */
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 20px;
+}
+
+.price-big {
+    font-size: 3.5em;
+    font-weight: 800;
+    color: var(--color-text-dark);
+    display: block;
+}
+
+.price-small {
+    font-size: 1.1em;
+    color: #9e9e9e;
+    font-weight: 400;
+}
+
+/* ------------------ LISTA DE BENEFICIOS ------------------ */
+.benefit-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    flex-grow: 1; /* Empuja el botón hacia abajo para igualar la altura */
+}
+
+.benefit-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 0.95em;
+    color: var(--color-text-dark);
+}
+
+.check-icon {
+    margin-right: 12px;
+    font-size: 1.1em;
+}
+
+/* ------------------ BOTÓN DE SELECCIÓN (INTERACTIVO) ------------------ */
+mat-card-actions {
+    margin-top: auto; /* Fuerza las acciones al fondo de la card */
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.select-button {
+    width: 100%;
+    height: 55px;
+    font-size: 1.1em;
+    font-weight: 700;
+    color: white !important;
+    border-radius: 8px;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    /* Sombra inicial y transición para interacción */
+    transition: all 0.25s ease-in-out;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.18) !important;
+}
+
+/* Efecto Hover: Más oscuro y más sombra, se levanta */
+.select-button:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Efecto Active: Se presiona y se oscurece */
+.select-button:active {
+    transform: translateY(0);
+    filter: brightness(0.9);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) !important;
+}
+
+
+/* --- ESTILOS POR PLAN (Colores de Sinergia y fondo de botón) --- */
+
+/* Plan Semanal (Verde Limpio) */
+.plan-semanal { border-top: 5px solid #66BB6A; }
+.plan-semanal mat-card-title { color: #66BB6A; }
+.plan-semanal .check-icon { color: #66BB6A; }
+.select-button-semanal { background-color: #66BB6A !important; }
+
+/* Plan Mensual (Azul Corporativo) */
+.plan-mensual { border-top: 5px solid #42A5F5; }
+.plan-mensual mat-card-title { color: #42A5F5; }
+.plan-mensual .check-icon { color: #42A5F5; }
+.select-button-mensual { background-color: #42A5F5 !important; }
+
+/* Plan Anual (Dorado/Naranja Premium) */
+.plan-anual { border-top: 5px solid #FFA726; }
+.plan-anual mat-card-title { color: #FFA726; }
+.plan-anual .check-icon { color: #FFA726; }
+.select-button-anual { background-color: #FFA726 !important; }
+
+/* Responisvidad Básica */
+@media (max-width: 1050px) {
+    .plans-grid {
+        justify-content: space-around;
+    }
+    .plan-card {
+        margin-bottom: 20px;
+        width: 45%;
+    }
+}
+@media (max-width: 700px) {
+    .plan-card {
+        width: 90%;
+    }
+}

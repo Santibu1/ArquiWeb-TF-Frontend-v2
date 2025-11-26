@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import {ComunidadService} from "../../../services/comunidad-service";
 import {CommonModule} from "@angular/common";
+import {SubNavbarUsuario} from "../sub-navbar-usuario/sub-navbar-usuario";
 
 @Component({
   selector: 'app-listar-comunidades-user',
-  imports: [
-      CommonModule,
-  ],
+    imports: [
+        CommonModule,
+        SubNavbarUsuario,
+    ],
   templateUrl: './listar-comunidades-user.html',
   styleUrl: './listar-comunidades-user.css',
 })
