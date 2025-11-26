@@ -18,6 +18,7 @@ export class SubNavbarUsuario {
 
     cerrarSesion() {
         localStorage.clear();
+        sessionStorage.clear();
         this.router.navigate(['/login']);
     }
 

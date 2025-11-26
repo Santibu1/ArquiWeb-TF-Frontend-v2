@@ -19,8 +19,6 @@ export class ComunidadService { // <-- CAMBIO
 
     constructor(){ }
 
-
-
     // GET (Listar todos)
     list(): Observable<Comunidad[]> { // <-- CAMBIO
         // Asumiendo endpoint: /listarComunidades
@@ -49,6 +47,18 @@ export class ComunidadService { // <-- CAMBIO
     delete(id: number) {
         // Asumiendo endpoint: /eliminar-Comunidad/{id}
         return this.httpClient.delete(`${this.url}/eliminar/${id}`);
+    }
+
+    unirAComunidad(idUsuario: number, idComunidad: number) {
+        const dto = {
+            idUsuario: idUsuario,
+            idComunidad: idComunidad
+        };
+        return this.httpClient.post(`${this.url}/unir`, dto);
+    }
+
+    getMiComunidad(userId: number): Observable<Comunidad> {
+        return this.httpClient.get<Comunidad>(`${this.url}/mi-comunidad/${userId}`);
     }
 
     // --- Métodos para el Subject (Reactividad) ---

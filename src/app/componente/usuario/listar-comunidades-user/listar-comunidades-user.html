@@ -1,0 +1,10 @@
+<h2>Comunidades disponibles</h2>
+
+<div *ngFor="let c of comunidades" class="comunidades-container">
+    <h3>{{ c.nombre }}</h3>
+    <p>{{ c.descripcion }}</p>
+    <p><strong>Ubicación:</strong> {{ c.ubicacion }}</p>
+    <p><strong>Estado:</strong> {{ c.estado }}</p>
+
+    <button (click)="unirse(c.idComunidad)">Unirme</button>
+</div>
