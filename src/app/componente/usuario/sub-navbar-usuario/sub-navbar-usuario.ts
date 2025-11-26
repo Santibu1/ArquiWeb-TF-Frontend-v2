@@ -13,7 +13,7 @@ export class SubNavbarUsuario {
     private router = inject(Router);
 
     irPerfil() {
-        this.router.navigate(['/usuario/perfil']);
+        this.router.navigate(['/editar-perfil']);
     }
 
     cerrarSesion() {
