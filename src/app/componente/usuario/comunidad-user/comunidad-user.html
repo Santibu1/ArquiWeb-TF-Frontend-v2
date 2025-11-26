@@ -1,0 +1,22 @@
+<div class="chat-container">
+    <div class="messages">
+        <div
+                *ngFor="let m of mensajes"
+                [ngClass]="{'msg-right': m.usuarioId === usuarioId, 'msg-left': m.usuarioId !== usuarioId}"
+                class="message"
+        >
+            <div class="msg-user">{{ m.usuarioNombre }}</div>
+            <div class="msg-content">{{ m.contenido }}</div>
+            <div class="msg-time">{{ m.fechaEnvio | date:'shortTime' }}</div>
+        </div>
+    </div>
+
+    <div class="input-area">
+        <input
+                type="text"
+                [(ngModel)]="nuevoMensaje"
+                placeholder="Escribe un mensaje..."
+        />
+        <button (click)="enviar()">Enviar</button>
+    </div>
+</div>

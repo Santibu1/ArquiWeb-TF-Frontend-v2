@@ -35,6 +35,8 @@ import {
     ComunidadesListarAdministradorComponent
 } from "./componente/administrador/comunidades-listar-administrador/comunidades-listar-administrador";
 import {RegisterComponent} from "./componente/register-component/register-component";
+import {ListarComunidadesUser} from "./componente/usuario/listar-comunidades-user/listar-comunidades-user";
+import {ComunidadUser} from "./componente/usuario/comunidad-user/comunidad-user";
 
 export const routes: Routes = [
     // 🔐 LOGIN
@@ -67,8 +69,9 @@ export const routes: Routes = [
     { path: 'usuario/home', component: HomeUsuario },
     { path: 'usuario/actividades', component: ListarActividadesUser },
     { path: 'usuario/productos', component: ListarProductosUser },
-    {path : 'registro' , component: RegisterComponent},
-
+    { path : 'registro' , component: RegisterComponent },
+    { path: 'usuario/comunidades', component: ListarComunidadesUser },
+    { path: 'usuario/comunidad/chat', component: ComunidadUser },
 
 
     // 🏠 RUTA POR DEFECTO

@@ -1,9 +1,11 @@
 
 export class Comunidad  {
-    idComunidad: number | null;
+    idComunidad?: number | null;
+    idSolicitud?: number;
+    idModerador?: number;
     nombre: string ;
-    descripcion: string ;
-    ubicacion: number ;
-    estado: string ;
-    usuario_id: number;
+    ubicacion?: number ;
+    descripcion?: string ;
+    estado?: string ;
+    miembrosIds?: number[];
 }
