@@ -76,3 +76,7 @@
 .logout-button:active {
     transform: translateY(0px);
 }
+
+li {
+    list-style-type: none;
+}

@@ -11,6 +11,7 @@ import {MatIconModule} from "@angular/material/icon";
 })
 export class SubNavbarUsuario {
     private router = inject(Router);
+    rol: string = "";
 
     irPerfil() {
         this.router.navigate(['/editar-perfil']);
@@ -22,4 +23,17 @@ export class SubNavbarUsuario {
         this.router.navigate(['/login']);
     }
 
+    ngOnInit(){
+        this.rol = localStorage.getItem('rol') ?? "";
+        console.log("ROL DETECTADO:", this.rol);
+
+    }
+
+    isModerador(): boolean {
+        return this.rol === 'MODERADOR';
+    }
+
+    isCliente(): boolean {
+        return this.rol === 'CLIENTE';
+    }
 }

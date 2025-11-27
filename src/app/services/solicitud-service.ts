@@ -27,6 +27,10 @@ export class SolicitudService {
         return this.httpClient.put(`${this.url}/${idSolicitud}/rechazar/${adminId}`, {});
     }
 
+    crearSolicitud(solicitud: Solicitud): Observable<Solicitud> {
+        return this.httpClient.post<Solicitud>(`${this.url}/crear`, solicitud);
+    }
+
     setList(listaNueva: Solicitud[]) {
         this.listaCambio.next(listaNueva);
     }

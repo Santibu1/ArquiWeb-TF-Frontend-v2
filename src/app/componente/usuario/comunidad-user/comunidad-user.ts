@@ -4,6 +4,8 @@ import {MensajeService} from "../../../services/mensaje-service";
 import {FormsModule} from "@angular/forms";
 import {CommonModule, DatePipe, NgClass} from "@angular/common";
 import {ComunidadService} from "../../../services/comunidad-service";
+import {SubNavbarUsuario} from "../sub-navbar-usuario/sub-navbar-usuario";
+import {MiembroDto} from "../../../model/miembro-dto";
 
 @Component({
   selector: 'app-comunidad-user',
@@ -11,7 +13,8 @@ import {ComunidadService} from "../../../services/comunidad-service";
         FormsModule,
         NgClass,
         DatePipe,
-        CommonModule
+        CommonModule,
+        SubNavbarUsuario
     ],
   templateUrl: './comunidad-user.html',
   styleUrl: './comunidad-user.css',
@@ -20,6 +23,11 @@ export class ComunidadUser {
 
     comunidadId!: number;
     comunidad: any;
+
+    showMembers = false;
+    comunidadNombre = "";
+    miembrosModeradores: MiembroDto[] = [];
+    miembrosClientes: MiembroDto[] = [];
 
     mensajes: Mensaje[] = [];
     nuevoMensaje: string = '';
@@ -39,6 +47,15 @@ export class ComunidadUser {
             next: (data) => {
                 this.comunidad = data;
                 this.comunidadId = Number(data.idComunidad);
+                this.comunidadNombre = data.nombre;
+
+                this.comunidadService.listarMiembrosComunidad(this.comunidadId).subscribe({
+                    next: miembros => {
+                        this.miembrosModeradores = miembros.filter(m => m.rol === 'MODERADOR');
+                        this.miembrosClientes = miembros.filter(m => m.rol === 'CLIENTE');
+                    }
+                });
+
                 this.cargarMensajes();
                 this.activarAutoRefresh();
             }
@@ -75,6 +92,10 @@ export class ComunidadUser {
         this.intervalId = setInterval(() => {
             this.cargarMensajes();
         }, 3000);
+    }
+
+    toggleMembers() {
+        this.showMembers = !this.showMembers;
     }
 
     ngOnDestroy() {
