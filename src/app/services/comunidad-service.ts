@@ -5,6 +5,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable, Subject} from 'rxjs';
 import {Comunidad} from '../model/comunidad'; // <-- CAMBIO
 import {environment} from "../../environments/environment";
+import {MiembroDto} from "../model/miembro-dto";
 
 @Injectable({
     providedIn: 'root'
@@ -59,6 +60,10 @@ export class ComunidadService { // <-- CAMBIO
 
     getMiComunidad(userId: number): Observable<Comunidad> {
         return this.httpClient.get<Comunidad>(`${this.url}/mi-comunidad/${userId}`);
+    }
+
+    listarMiembrosComunidad(idComunidad: number) {
+        return this.httpClient.get<MiembroDto[]>(`${this.url}/${idComunidad}/miembros`);
     }
 
     // --- Métodos para el Subject (Reactividad) ---

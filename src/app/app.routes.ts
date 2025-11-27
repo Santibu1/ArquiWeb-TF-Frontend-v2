@@ -40,6 +40,7 @@ import {ComunidadUser} from "./componente/usuario/comunidad-user/comunidad-user"
 import {SuscripcionUsuario} from "./componente/usuario/suscripcion-usuario/suscripcion-usuario";
 import {SuscripcionMetodoPago} from "./componente/usuario/suscripcion-metodo-pago/suscripcion-metodo-pago";
 import {EditarPerfilUsuarioComponent} from "./componente/usuario/editar-perfil-usuario/editar-perfil-usuario";
+import {SolicitudCrearModerador} from "./componente/usuario/solicitud-crear-moderador/solicitud-crear-moderador";
 
 export const routes: Routes = [
     // 🔐 LOGIN
@@ -78,6 +79,7 @@ export const routes: Routes = [
     { path: 'usuario/suscripcion', component: SuscripcionUsuario},
     { path: 'usuario/suscripcion-metodo-pago', component: SuscripcionMetodoPago},
     { path: 'editar-perfil',  component: EditarPerfilUsuarioComponent  },
+    { path: 'moderador/solicitud', component: SolicitudCrearModerador},
 
     // 🏠 RUTA POR DEFECTO
     { path: '', redirectTo: 'login', pathMatch: 'full' },

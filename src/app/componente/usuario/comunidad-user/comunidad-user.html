@@ -1,22 +1,74 @@
-<div class="chat-container">
-    <div class="messages">
-        <div
-                *ngFor="let m of mensajes"
-                [ngClass]="{'msg-right': m.usuarioId === usuarioId, 'msg-left': m.usuarioId !== usuarioId}"
-                class="message"
-        >
-            <div class="msg-user">{{ m.usuarioNombre }}</div>
-            <div class="msg-content">{{ m.contenido }}</div>
-            <div class="msg-time">{{ m.fechaEnvio | date:'shortTime' }}</div>
+<app-sub-navbar-usuario></app-sub-navbar-usuario>
+
+<div class="chat-wrapper">
+
+    <div class="top-bar">
+        <div class="community-info">
+            <div class="community-name">{{ comunidadNombre }}</div>
+            <div class="community-details">
+                {{ miembrosModeradores.length + miembrosClientes.length }} miembros • Activa
+            </div>
         </div>
+
+        <button class="members-btn" (click)="toggleMembers()">
+            👥 Miembros
+        </button>
     </div>
 
-    <div class="input-area">
-        <input
-                type="text"
-                [(ngModel)]="nuevoMensaje"
-                placeholder="Escribe un mensaje..."
-        />
-        <button (click)="enviar()">Enviar</button>
+    <div class="chat-container">
+
+        <div class="messages-area">
+            <div class="messages">
+                <div
+                        *ngFor="let m of mensajes"
+                        [ngClass]="{
+                        'msg-right': m.usuarioId === usuarioId,
+                        'msg-left': m.usuarioId !== usuarioId
+                    }"
+                        class="message"
+                >
+                    <div class="msg-user">{{ m.usuarioNombre }}</div>
+                    <div class="msg-content">{{ m.contenido }}</div>
+                    <div class="msg-time">{{ m.fechaEnvio | date:'shortTime' }}</div>
+                </div>
+            </div>
+
+            <div class="input-area">
+                <input
+                        type="text"
+                        [(ngModel)]="nuevoMensaje"
+                        placeholder="Escribe un mensaje..."
+                />
+                <button (click)="enviar()">Enviar</button>
+            </div>
+        </div>
+
+        <div class="members-panel" [class.open]="showMembers">
+
+            <div class="members-title">Miembros</div>
+
+            <div *ngIf="miembrosModeradores.length > 0">
+                <div class="members-group-title">Moderadores</div>
+
+                <div *ngFor="let m of miembrosModeradores" class="member-item">
+                    <div class="avatar">{{ m.nombreUsuario[0] }}</div>
+                    <div class="user-name">{{ m.nombreUsuario }}</div>
+                </div>
+            </div>
+
+            <hr />
+
+            <div *ngIf="miembrosClientes.length > 0">
+                <div class="members-group-title">Clientes</div>
+
+                <div *ngFor="let m of miembrosClientes" class="member-item">
+                    <div class="avatar">{{ m.nombreUsuario[0] }}</div>
+                    <div class="user-name">{{ m.nombreUsuario }}</div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
+
 </div>

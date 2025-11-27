@@ -8,4 +8,6 @@ export class Solicitud {
     estado: string;
     fechaCreacion: Date;
     fechaRevision: Date;
+    mensaje: string;
+    success: boolean;
 }
