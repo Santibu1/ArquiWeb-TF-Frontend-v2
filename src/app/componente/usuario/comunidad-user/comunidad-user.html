@@ -10,23 +10,72 @@
             </div>
         </div>
 
-        <button class="members-btn" (click)="toggleMembers()">
-            👥 Miembros
-        </button>
+        <div class="actions">
+            <button class="action-btn eventos-btn" (click)="toggleEventos()">
+                🎉 Eventos
+            </button>
+            <button class="action-btn members-btn" (click)="toggleMembers()">
+                👥 Miembros
+            </button>
+        </div>
     </div>
 
     <div class="chat-container">
 
+        <div class="side-panel eventos-panel" [class.open]="showEventos">
+            <div class="panel-header">
+                <h3>Eventos Próximos</h3>
+            </div>
+
+            <div class="create-section" *ngIf="esModerador">
+                <button class="btn-crear" (click)="abrirCrearEvento()">
+                    + Crear Evento
+                </button>
+            </div>
+
+            <div class="eventos-list">
+                <div class="evento-card" *ngFor="let ev of eventos">
+                    <div class="ev-date">
+                        <span class="day">{{ ev.fecha | date:'dd' }}</span>
+                        <span class="month">{{ ev.fecha | date:'MMM' }}</span>
+                    </div>
+
+                    <div class="ev-info">
+                        <h4>{{ ev.nombre }}</h4>
+                        <p class="ev-pts">+{{ ev.recompensa }} EcoBits</p>
+
+                        <ng-container *ngIf="!esModerador">
+                            <button *ngIf="!estoyInscrito(ev.eventoId!)"
+                                    class="btn-join"
+                                    (click)="inscribirse(ev)">
+                                Unirme
+                            </button>
+
+                            <button *ngIf="estoyInscrito(ev.eventoId!)"
+                                    class="btn-cancel"
+                                    (click)="cancelarInscripcion(ev)">
+                                Cancelar
+                            </button>
+                        </ng-container>
+
+                        <button *ngIf="esModerador" class="btn-view-users" (click)="abrirParticipantes(ev.eventoId!)">
+                            👁️ Ver Inscritos
+                        </button>
+                    </div>
+                </div>
+
+                <p *ngIf="eventos.length === 0" class="no-data">No hay eventos activos.</p>
+            </div>
+        </div>
+
         <div class="messages-area">
             <div class="messages">
-                <div
-                        *ngFor="let m of mensajes"
-                        [ngClass]="{
+                <div *ngFor="let m of mensajes"
+                     [ngClass]="{
                         'msg-right': m.usuarioId === usuarioId,
                         'msg-left': m.usuarioId !== usuarioId
-                    }"
-                        class="message"
-                >
+                     }"
+                     class="message">
                     <div class="msg-user">{{ m.usuarioNombre }}</div>
                     <div class="msg-content">{{ m.contenido }}</div>
                     <div class="msg-time">{{ m.fechaEnvio | date:'shortTime' }}</div>
@@ -34,41 +83,32 @@
             </div>
 
             <div class="input-area">
-                <input
-                        type="text"
-                        [(ngModel)]="nuevoMensaje"
-                        placeholder="Escribe un mensaje..."
-                />
+                <input type="text" [(ngModel)]="nuevoMensaje" placeholder="Escribe un mensaje..." (keyup.enter)="enviar()"/>
                 <button (click)="enviar()">Enviar</button>
             </div>
         </div>
 
         <div class="members-panel" [class.open]="showMembers">
-
             <div class="members-title">Miembros</div>
 
             <div *ngIf="miembrosModeradores.length > 0">
                 <div class="members-group-title">Moderadores</div>
-
                 <div *ngFor="let m of miembrosModeradores" class="member-item">
-                    <div class="avatar">{{ m.nombreUsuario[0] }}</div>
+                    <div class="avatar">{{ m.nombreUsuario[0] | uppercase }}</div>
                     <div class="user-name">{{ m.nombreUsuario }}</div>
                 </div>
             </div>
 
-            <hr />
+            <hr *ngIf="miembrosModeradores.length > 0 && miembrosClientes.length > 0" />
 
             <div *ngIf="miembrosClientes.length > 0">
                 <div class="members-group-title">Clientes</div>
-
                 <div *ngFor="let m of miembrosClientes" class="member-item">
-                    <div class="avatar">{{ m.nombreUsuario[0] }}</div>
+                    <div class="avatar">{{ m.nombreUsuario[0] | uppercase }}</div>
                     <div class="user-name">{{ m.nombreUsuario }}</div>
                 </div>
             </div>
-
         </div>
 
     </div>
-
 </div>

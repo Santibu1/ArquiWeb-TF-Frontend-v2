@@ -1,3 +1,4 @@
+/* ESTRUCTURA GENERAL */
 .chat-wrapper {
     height: 90vh;
     display: flex;
@@ -25,26 +26,148 @@
     opacity: 0.9;
 }
 
-.members-btn {
-    background: white;
-    color: #0a8;
-    font-weight: bold;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 8px;
-    cursor: pointer;
+.actions {
+    display: flex;
+    gap: 10px;
 }
 
-/* CHAT + MEMBERS PANEL */
+.action-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+    background: white;
+    color: #0a8;
+}
+
+.eventos-btn {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+.eventos-btn:hover { background-color: #c8e6c9; }
+
+/* CHAT CONTAINER */
 .chat-container {
     display: flex;
     flex: 1;
     border: 1px solid #ccc;
     border-radius: 10px;
     overflow: hidden;
+    position: relative;
 }
 
-/* LEFT CHAT */
+/* --- PANEL DE EVENTOS (Izquierda) --- */
+.side-panel {
+    width: 0;
+    overflow: hidden;
+    transition: width 0.3s ease;
+    background-color: white;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+}
+
+.eventos-panel.open {
+    width: 320px;
+    padding: 15px;
+}
+
+.panel-header h3 {
+    color: #2e7d32;
+    margin: 0 0 15px 0;
+    border-bottom: 2px solid #a5d6a7;
+    padding-bottom: 5px;
+}
+
+.btn-crear {
+    width: 100%;
+    background-color: #2e7d32;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+/* Tarjeta Evento */
+.evento-card {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    gap: 10px;
+    border: 1px solid #eee;
+}
+
+.ev-date {
+    background: #e0f2f1;
+    color: #00695c;
+    border-radius: 8px;
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+}
+.ev-date .day { font-size: 1.2rem; font-weight: bold; }
+.ev-date .month { font-size: 0.8rem; text-transform: uppercase; }
+
+.ev-info { flex: 1; }
+.ev-info h4 { margin: 0 0 5px 0; font-size: 0.95rem; }
+.ev-pts { font-size: 0.8rem; color: #f57f17; font-weight: bold; margin-bottom: 8px; }
+
+/* --- BOTONES DE ACCIÓN --- */
+
+/* Botón Unirme (Verde) */
+.btn-join {
+    background-color: white;
+    border: 1px solid #2e7d32;
+    color: #2e7d32;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    width: 100%;
+    font-weight: 600;
+}
+.btn-join:hover { background-color: #2e7d32; color: white; }
+
+/* Botón Cancelar (Rojo) */
+.btn-cancel {
+    background-color: white;
+    border: 1px solid #d32f2f;
+    color: #d32f2f;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    width: 100%;
+    font-weight: 600;
+}
+.btn-cancel:hover { background-color: #d32f2f; color: white; }
+
+/* Botón Ver Inscritos (Azul - Moderador) */
+.btn-view-users {
+    background-color: #e3f2fd;
+    border: 1px solid #2196f3;
+    color: #0d47a1;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    font-weight: 600;
+    width: 100%;
+}
+.btn-view-users:hover { background-color: #2196f3; color: white; }
+
+.no-data { text-align: center; color: #888; margin-top: 20px; }
+
+/* --- AREA DE MENSAJES (Centro) --- */
 .messages-area {
     flex: 1;
     display: flex;
@@ -54,7 +177,7 @@
 .messages {
     flex: 1;
     padding: 15px;
-    overflow-y: scroll;
+    overflow-y: auto;
     background: #f5f5f5;
 }
 
@@ -76,21 +199,9 @@
     margin-right: auto;
 }
 
-.msg-user {
-    font-size: 12px;
-    font-weight: bold;
-    margin-bottom: 3px;
-}
-
-.msg-content {
-    font-size: 14px;
-}
-
-.msg-time {
-    font-size: 10px;
-    margin-top: 2px;
-    opacity: 0.6;
-}
+.msg-user { font-size: 12px; font-weight: bold; margin-bottom: 3px; }
+.msg-content { font-size: 14px; }
+.msg-time { font-size: 10px; margin-top: 2px; opacity: 0.6; }
 
 .input-area {
     display: flex;
@@ -99,23 +210,24 @@
     background: white;
 }
 
-input {
+.input-area input {
     flex: 1;
     padding: 10px;
     border-radius: 6px;
     border: 1px solid #ccc;
 }
 
-button {
+.input-area button {
     margin-left: 10px;
     padding: 10px 15px;
     background: #0a8;
     color: white;
     border-radius: 6px;
     border: none;
+    cursor: pointer;
 }
 
-/* RIGHT MEMBERS PANEL */
+/* --- PANEL DERECHO (Miembros) --- */
 .members-panel {
     width: 0;
     background: #fff;
@@ -134,37 +246,19 @@ button {
     border-bottom: 1px solid #ddd;
 }
 
-.member-item {
-    padding: 10px 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-bottom: 1px solid #f0f0f0;
-}
-
-.circle {
-    background: #0a8;
-    color: white;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    font-weight: bold;
-}
-
 .members-group-title {
     font-weight: bold;
     margin: 10px 0 5px 10px;
     color: #4CAF50;
+    font-size: 0.9rem;
 }
 
 .member-item {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 8px;
+    padding: 8px 15px;
+    border-bottom: 1px solid #f9f9f9;
 }
 
 .avatar {
@@ -177,4 +271,17 @@ button {
     align-items: center;
     justify-content: center;
     font-weight: bold;
+    font-size: 0.9rem;
 }
+.btn-cancel {
+    background-color: white;
+    border: 1px solid #d32f2f;
+    color: #d32f2f;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    width: 100%;
+    font-weight: 600;
+}
+.btn-cancel:hover { background-color: #d32f2f; color: white; }

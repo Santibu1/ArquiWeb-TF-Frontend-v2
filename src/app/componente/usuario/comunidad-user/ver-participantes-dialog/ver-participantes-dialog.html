@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Participantes Inscritos</h2>
+
+<mat-dialog-content>
+
+    <div *ngIf="participantes.length === 0" class="empty-state">
+        <p>Aún no hay inscritos en este evento.</p>
+    </div>
+
+    <div class="lista-participantes">
+        <div class="participante-item" *ngFor="let p of participantes">
+
+            <div class="avatar">
+                {{ p.nombreUsuario?.charAt(0) | uppercase }}
+            </div>
+
+            <div class="info">
+                <span class="name">{{ p.nombreUsuario }}</span>
+                <span class="status">{{ p.estado }}</span>
+            </div>
+        </div>
+    </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cerrar</button>
+</mat-dialog-actions>

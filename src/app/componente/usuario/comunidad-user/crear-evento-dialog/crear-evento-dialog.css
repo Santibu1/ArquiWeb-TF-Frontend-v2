@@ -1,0 +1,35 @@
+/* Contenedor principal del contenido */
+.dialog-content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    min-width: 450px; /* Ancho mínimo para que no se vea aplastado */
+}
+
+/* Campos que ocupan todo el ancho */
+.full-width {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+/* Contenedor para poner inputs uno al lado del otro */
+.row-inputs {
+    display: flex;
+    gap: 15px; /* Espacio entre los inputs */
+}
+
+/* Hacemos que los inputs dentro de la fila crezcan equitativamente */
+.row-inputs mat-form-field {
+    flex: 1;
+}
+
+/* Ajuste responsive para celulares */
+@media (max-width: 600px) {
+    .dialog-content {
+        min-width: auto; /* Dejar que se ajuste al ancho de pantalla */
+    }
+    .row-inputs {
+        flex-direction: column; /* En celular, uno debajo del otro */
+        gap: 0;
+    }
+}
