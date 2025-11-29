@@ -24,5 +24,27 @@ export class VerParticipantesDialog implements OnInit{
             error: (e) => console.error(e)
         });
     }
+    cargarParticipantes() {
+        this.eventoService.listarParticipantesConAsistencia(this.data.eventoId).subscribe({
+            next: (res) => this.participantes = res,
+            error: (e) => console.error(e)
+        });
+    }
+
+    confirmarAsistencia(participante: UsuarioEventoDto) {
+        if (confirm(`¿Confirmar asistencia de ${participante.nombreUsuario}?`)) {
+            this.eventoService.confirmarAsistencia(this.data.eventoId, participante.usuarioId).subscribe({
+                next: () => {
+                    alert('Asistencia confirmada');
+                    // Actualizar localmente sin recargar
+                    participante.asistenciaConfirmada = true;
+                    participante.estado = 'Asistió';
+                },
+                error: (err) => {
+                    alert('Error: ' + (err.error?.message || 'No se pudo confirmar'));
+                }
+            });
+        }
+    }
 
 }

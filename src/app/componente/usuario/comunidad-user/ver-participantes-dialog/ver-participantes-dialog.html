@@ -17,6 +17,20 @@
                 <span class="name">{{ p.nombreUsuario }}</span>
                 <span class="status">{{ p.estado }}</span>
             </div>
+
+            <!-- BOTÓN DE CONFIRMACIÓN -->
+            <button
+                    *ngIf="!p.asistenciaConfirmada"
+                    class="btn-confirmar"
+                    (click)="confirmarAsistencia(p)">
+                ✓ Confirmar
+            </button>
+
+            <!-- BADGE CUANDO YA ASISTIÓ -->
+            <span *ngIf="p.asistenciaConfirmada" class="badge-confirmado">
+                ✅ Asistió
+            </span>
+
         </div>
     </div>
 

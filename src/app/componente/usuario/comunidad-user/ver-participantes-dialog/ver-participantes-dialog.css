@@ -30,6 +30,7 @@
 .info {
     display: flex;
     flex-direction: column;
+    flex: 1; /* ← IMPORTANTE: permite que el botón se alinee a la derecha */
 }
 
 .name {
@@ -46,4 +47,36 @@
     text-align: center;
     color: #888;
     padding: 20px;
+}
+
+/* ========== NUEVOS ESTILOS ========== */
+
+/* Botón Confirmar Asistencia */
+.btn-confirmar {
+    margin-left: auto;
+    background-color: #e8f5e9;
+    border: 1px solid #4caf50;
+    color: #2e7d32;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-confirmar:hover {
+    background-color: #4caf50;
+    color: white;
+}
+
+/* Badge de Confirmado */
+.badge-confirmado {
+    margin-left: auto;
+    background-color: #c8e6c9;
+    color: #1b5e20;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
 }

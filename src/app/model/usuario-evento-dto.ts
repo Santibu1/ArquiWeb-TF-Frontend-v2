@@ -5,4 +5,5 @@ export class UsuarioEventoDto {
     nombreUsuario?: string; // <--- NUEVO
     puntosGanados: number;
     estado: string;
+    asistenciaConfirmada: boolean;
 }

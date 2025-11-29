@@ -38,4 +38,17 @@ export class EventoService {
     listarParticipantes(eventoId: number): Observable<UsuarioEventoDto[]> {
         return this.http.get<UsuarioEventoDto[]>(`${this.urlUsuarioEvento}/evento/${eventoId}`);
     }
+    confirmarAsistencia(eventoId: number, usuarioId: number): Observable<any> {
+        return this.http.post(
+            `${this.urlUsuarioEvento}/confirmar-asistencia/${eventoId}/${usuarioId}`,  // ✅ CORRECTO
+            {}
+        );
+    }
+
+    listarParticipantesConAsistencia(eventoId: number): Observable<UsuarioEventoDto[]> {
+        return this.http.get<UsuarioEventoDto[]>(
+            `${this.url}/eventos/${eventoId}/participantes-con-asistencia`
+        );
+    }
+
 }
