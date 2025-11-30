@@ -41,6 +41,9 @@ import {SuscripcionUsuario} from "./componente/usuario/suscripcion-usuario/suscr
 import {SuscripcionMetodoPago} from "./componente/usuario/suscripcion-metodo-pago/suscripcion-metodo-pago";
 import {EditarPerfilUsuarioComponent} from "./componente/usuario/editar-perfil-usuario/editar-perfil-usuario";
 import {SolicitudCrearModerador} from "./componente/usuario/solicitud-crear-moderador/solicitud-crear-moderador";
+import {
+    ReporteParticipacionUsuario
+} from "./componente/usuario/reporte-participacion-usuario/reporte-participacion-usuario";
 
 export const routes: Routes = [
     // 🔐 LOGIN
@@ -80,6 +83,7 @@ export const routes: Routes = [
     { path: 'usuario/suscripcion-metodo-pago', component: SuscripcionMetodoPago},
     { path: 'editar-perfil',  component: EditarPerfilUsuarioComponent  },
     { path: 'moderador/solicitud', component: SolicitudCrearModerador},
+    {path: 'usuario/estadisticas',component:ReporteParticipacionUsuario},
 
     // 🏠 RUTA POR DEFECTO
     { path: '', redirectTo: 'login', pathMatch: 'full' },

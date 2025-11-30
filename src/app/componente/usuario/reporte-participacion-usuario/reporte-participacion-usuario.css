@@ -1,0 +1,20 @@
+.titulo{
+    text-align: center;
+}
+.titulo-grafico1 {
+    text-align: left;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.grafico-container {
+    display: flex;
+    justify-content: flex-start;
+    /*align-items: center;*/
+    height: 400px;
+}
+
+.grafico-box1 {
+    width: 300px;
+    height: 300px;
+}

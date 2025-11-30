@@ -1,0 +1,17 @@
+<app-sub-navbar-usuario></app-sub-navbar-usuario>
+<h1 class="titulo">Reportes del mes</h1>
+
+
+<div class="grafico-container">
+    <div class = "grafico-box1">
+        <div class="titulo-grafico1">Puntos obtenidos en eventos</div>
+        <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                chartType="bar">
+        </canvas>
+    </div>
+
+
+</div>
