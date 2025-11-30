@@ -62,6 +62,10 @@ export class ComunidadService { // <-- CAMBIO
         return this.httpClient.get<Comunidad>(`${this.url}/mi-comunidad/${userId}`);
     }
 
+    verificarPertenencia(idUsuario: number) {
+        return this.httpClient.get<any>(`${this.url}/verificar-comunidad/${idUsuario}`);
+    }
+
     listarMiembrosComunidad(idComunidad: number) {
         return this.httpClient.get<MiembroDto[]>(`${this.url}/${idComunidad}/miembros`);
     }

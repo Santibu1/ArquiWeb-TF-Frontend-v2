@@ -35,7 +35,7 @@ export class ComunidadesListarAdministradorComponent implements OnInit, AfterVie
         'nombre',        // <-- CORREGIDO
         'ubicacion',              // <-- CORREGIDO
         'estado',
-        'acciones'
+        //'acciones'
     ];
 
     dataSource: MatTableDataSource<Comunidad> = new MatTableDataSource<Comunidad>();
