@@ -1,0 +1,66 @@
+.contenedor {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 15px;
+}
+
+.btn-back {
+    margin-bottom: 10px;
+}
+
+.form-card {
+    width: 100%;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.titulo-con-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.logo-bcp {
+    width: 70px;
+}
+
+.titulo {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.subtitulo {
+    color: #555;
+    margin: 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 15px;
+}
+
+.correo-field {
+    grid-column: span 2;
+}
+
+.acciones {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.btn-registrar {
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.cargando {
+    text-align: center;
+    margin-top: 20px;
+}
+

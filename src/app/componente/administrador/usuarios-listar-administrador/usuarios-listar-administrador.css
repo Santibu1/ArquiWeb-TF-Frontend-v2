@@ -1,0 +1,115 @@
+/* ======== CONTENEDOR GENERAL ======== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* ======== HEADER ======== */
+.header-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-section h1 {
+    font-size: 26px;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Botón Volver */
+.back-button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: #e3e3e3;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.back-button:hover {
+    background: #d5d5d5;
+}
+
+.back-button mat-icon {
+    font-size: 20px;
+}
+
+/* ======== FILTRO ======== */
+.filter-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+mat-form-field {
+    width: 260px;
+}
+
+/* ======== TABLA ======== */
+.mat-elevation-z8 {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Header tabla */
+table th.mat-header-cell {
+    background: #075b9d;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Celdas */
+table td.mat-cell {
+    font-size: 14px;
+    padding: 12px 10px;
+}
+
+/* Hover fila */
+tr.mat-row:hover {
+    background: rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+/* Ajustar paddings */
+.mat-table {
+    width: 100%;
+}
+
+/* ======== PAGINADOR ======== */
+.mat-paginator {
+    background: white;
+    border-top: 1px solid #ddd;
+}
+td.mat-cell button {
+    margin-right: 5px;
+}
+
+td.mat-cell button mat-icon {
+    font-size: 20px;
+}
+/* Estilo para el snackbar de advertencia/suspensión */
+.snackbar-warn {
+    background-color: #f44336; /* Rojo */
+    color: white;
+}
+
+/* Estilo para el snackbar de éxito */
+.snackbar-success {
+    background-color: #4caf50; /* Verde */
+    color: white;
+}
+
+/* Estilo para el snackbar de error */
+.snackbar-error {
+    background-color: #ff9800; /* Naranja/Ámbar */
+    color: white;
+}

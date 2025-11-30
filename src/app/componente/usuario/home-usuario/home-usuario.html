@@ -29,17 +29,17 @@
             🔄 Nuevo consejo
         </button>
     </div>
-    <!-- SECCIÓN DE SUSCRIPCIÓN -->
-    <div class="subscription-section">
-        <h2>🌱 ¿Aún no tienes un plan con nosotros?</h2>
-        <p>
-            ¡No esperes más! Suscríbete hoy y accede a beneficios exclusivos,
-            eco-recompensas y contenido premium para mejorar tu vida sostenible.
-        </p>
 
-        <button class="subscribe-btn" (click)="irASuscripcion()">
-            Ver planes de suscripción
-        </button>
+    <!-- MOSTRAR SOLO SI TIENE PLAN ACTIVO -->
+    <div *ngIf="planActivo === true" class="plan-activo">
+        <p>🔥 Plan activo – {{ diasRestantes }} días restantes</p>
+        <p>Inicio: {{ fechaInicio }}</p>
+        <p>Finaliza: {{ fechaFin }}</p>
+    </div>
+
+    <!-- SI NO TIENE PLAN (NULL O FALSE) -->
+    <div *ngIf="planActivo !== true" class="plan-inactivo">
+        <p>❗ Tu plan ha expirado o no tienes uno activo.</p>
     </div>
 
 </div>

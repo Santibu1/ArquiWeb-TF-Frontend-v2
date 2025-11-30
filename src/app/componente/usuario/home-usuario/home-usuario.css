@@ -166,3 +166,67 @@
     background-color: #FFEBEE;
     border-radius: 8px;
 }
+.alert {
+    width: 70%;
+    margin: 30px auto;
+    padding: 20px 30px;
+    border-radius: 15px;
+    font-size: 18px;
+    line-height: 1.6;
+    box-shadow: 0 4px 12px #00000020;
+}
+
+.alert-success {
+    background: #e8f8ec;
+    border-left: 6px solid #28a745;
+}
+
+.alert-warning {
+    background: #fff4e5;
+    border-left: 6px solid #ff6600;
+}
+
+.alert strong {
+    font-weight: 700;
+}
+/* --- TARJETA PARA PLAN ACTIVO --- */
+.plan-activo {
+    background: #e7f7ec;                 /* verde suave */
+    border-left: 8px solid #28a745;      /* borde verde */
+    padding: 18px 22px;
+    border-radius: 12px;
+    margin: 25px 0;
+    font-size: 1.1rem;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.plan-activo p {
+    margin: 4px 0;
+    color: #1c7a35;
+    font-weight: 500;
+}
+
+/* --- TARJETA PARA PLAN INACTIVO / EXPIRADO --- */
+.plan-inactivo {
+    background: #fff4e5;                 /* naranja claro */
+    border-left: 8px solid #ff9800;      /* borde naranja */
+    padding: 18px 22px;
+    border-radius: 12px;
+    margin: 25px 0;
+    font-size: 1.1rem;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.plan-inactivo p {
+    margin: 4px 0;
+    color: #d57a00;
+    font-weight: 500;
+}
+
+/* --- EFECTO DE ANIMACIÓN SUAVE --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}

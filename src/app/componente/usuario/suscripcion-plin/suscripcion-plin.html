@@ -1,0 +1,75 @@
+<app-sub-navbar-usuario></app-sub-navbar-usuario>
+
+<div class="contenedor">
+
+    <!-- BOTÓN DE RETROCESO -->
+    <button mat-icon-button class="btn-back" (click)="volver()">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+
+    <div *ngIf="usuarioLogueado; else cargando">
+
+        <mat-card class="form-card" appearance="outlined">
+
+            <!-- CABECERA -->
+            <div class="titulo-con-logo">
+                <img src="images/logos/PLIN-INTERBANK.png" class="logo-bcp" alt="PLIN">
+                <div>
+                    <h2 class="titulo">Suscripción PLIN</h2>
+                    <p class="subtitulo">Ingresa los datos solicitados</p>
+                </div>
+            </div>
+
+            <mat-card-content>
+
+                <div class="grid">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput [value]="usuarioLogueado.nombreUsuario" readonly>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Apellido</mat-label>
+                        <input matInput [value]="usuarioLogueado.apellidoUsuario" readonly>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Correo</mat-label>
+                        <input matInput [value]="usuarioLogueado.emailUsuario" readonly>
+                    </mat-form-field>
+                </div>
+
+                <div class="grid">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Número de tarjeta de crédito</mat-label>
+                        <input matInput maxlength="16" [(ngModel)]="tarjeta" (input)="soloNumeros($event)">
+                        <mat-error *ngIf="tarjeta && tarjeta.length !== 16">
+                            La tarjeta debe tener 16 dígitos.
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Número de celular</mat-label>
+                        <input matInput maxlength="9" [(ngModel)]="celular" (input)="soloNumeros($event)">
+                        <mat-error *ngIf="celular && celular.length !== 9">
+                            El celular debe tener 9 dígitos.
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+            </mat-card-content>
+
+            <mat-card-actions class="acciones">
+                <button mat-raised-button color="primary" (click)="registrar()">
+                    Registrar
+                </button>
+            </mat-card-actions>
+
+        </mat-card>
+
+    </div>
+
+    <ng-template #cargando>
+        <p class="cargando">Cargando datos...</p>
+    </ng-template>
+</div>

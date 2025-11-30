@@ -90,7 +90,7 @@ export class ListarActividadesUser {
         });
     }
 
-    // Método para verificar en el HTML si una actividad ya fue hecha
+    // Metodo para verificar en el HTML si una actividad ya fue hecha
     isCompletada(actividadId: number): boolean {
         return this.actividadesCompletadasIds.has(actividadId);
     }

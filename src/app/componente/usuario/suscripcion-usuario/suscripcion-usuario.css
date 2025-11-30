@@ -7,7 +7,7 @@
 
 /* ------------------ BASE Y CONTENEDOR ------------------ */
 .suscripcion-container {
-    padding: 60px 30px; /* Mayor espaciado */
+    padding: 20px 5px; /* Mayor espaciado */
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -35,21 +35,36 @@
     display: flex;
     justify-content: center; /* Centra el grupo de tarjetas */
     align-items: stretch; /* Asegura que todas las tarjetas tengan la misma altura */
-    gap: 30px;
+    gap: 100px;
     flex-wrap: wrap;
+    padding-bottom: 50px;
 }
 
-/* ------------------ CARD BASE ------------------ */
+/* ------------------ CARD BASE (ALTURA REDUCIDA) ------------------ */
 .plan-card {
     display: flex;
-    flex-direction: column; /* Contenido interno en columna */
-    width: 300px; /* Ancho fijo para las tarjetas */
-    min-height: 500px; /* Altura mínima para una apariencia uniforme */
-    padding: 30px 20px;
+    flex-direction: column;
+    width: 300px;
+    min-height: 400px;       /* ↓ Antes 500px */
+    padding: 20px 18px;      /* ↓ Antes 30px 20px */
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     border-radius: 12px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
     text-align: left;
+}
+
+/* ------------------ PRECIO (REDUCIDO) ------------------ */
+.price-display {
+    margin: 10px 0 20px 0;   /* ↓ Antes 20px 0 40px 0 */
+    line-height: 1;
+    text-align: center;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 10px;   /* ↓ Antes 20px */
+}
+
+/* Ajuste leve del tamaño del precio (opcional) */
+.price-big {
+    font-size: 3em;          /* ↓ Antes 3.5em */
 }
 
 .plan-card:hover {
@@ -175,19 +190,80 @@ mat-card-actions {
 .plan-anual mat-card-title { color: #FFA726; }
 .plan-anual .check-icon { color: #FFA726; }
 .select-button-anual { background-color: #FFA726 !important; }
-
-/* Responisvidad Básica */
-@media (max-width: 1050px) {
-    .plans-grid {
-        justify-content: space-around;
-    }
-    .plan-card {
-        margin-bottom: 20px;
-        width: 45%;
-    }
+.metodo-container {
+    margin-top: 60px;
+    padding: 30px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
-@media (max-width: 700px) {
-    .plan-card {
-        width: 90%;
-    }
+
+/* CONTENEDOR GENERAL DEL FORMULARIO */
+.metodo-container {
+    margin-top: 40px;
+    padding: 30px;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* ANIMACIÓN */
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* TITULO */
+.titulo-form {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+/* WRAPPER DEL FORM E IMAGEN */
+.form-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* LADO DEL FORMULARIO */
+.form-left {
+    flex: 1;
+    min-width: 280px;
+}
+
+.full {
+    width: 100%;
+}
+
+/* BOTONES */
+.form-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+/* IMAGEN */
+.form-right {
+    flex: 0.7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagen-pago {
+    width: 260px;
+    border-radius: 12px;
+    border: 2px solid #ddd;
+    object-fit: contain;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }

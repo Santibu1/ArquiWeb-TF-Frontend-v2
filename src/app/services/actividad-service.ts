@@ -55,7 +55,7 @@ export class ActividadService {
         return this.listaCambio.asObservable();
     }
 
-    // Método helper para refrescar la lista después de un Insert/Update/Delete
+    // Metodo helper para refrescar la lista después de un Insert/Update/Delete
     actualizarLista() :void {
         this.list().subscribe({
             next: (data) => { this.setList(data); },
