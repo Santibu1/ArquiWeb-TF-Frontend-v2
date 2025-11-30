@@ -2,15 +2,17 @@
 
     <div class="left-menu">
         <a routerLink="/usuario/home" routerLinkActive="active">Inicio</a>
-        <li *ngIf="isCliente()">
+        <li *ngIf="isCliente() && !perteneceAComunidad()">
             <a routerLink="/usuario/comunidades" routerLinkActive="active">Comunidades</a>
         </li>
         <a routerLink="/usuario/estadisticas" routerLinkActive="active">Mis Estadísticas</a>
         <a routerLink="/usuario/actividades" routerLinkActive="active">Actividades</a>
         <a routerLink="/usuario/productos" routerLinkActive="active">Productos</a>
         <a routerLink="/usuario/suscripcion" routerLinkActive="active">Suscripción</a>
+        <li *ngIf="perteneceAComunidad()">
         <a routerLink="/usuario/comunidad/chat" routerLinkActive="active">Chat Comunidad</a>
-        <li *ngIf="isModerador()">
+        </li>
+        <li *ngIf="isModerador() && !perteneceAComunidad()">
         <a routerLink="/moderador/solicitud" routerLinkActive="active">Crea Solicitud</a>
         </li>
     </div>

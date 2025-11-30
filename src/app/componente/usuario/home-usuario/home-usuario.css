@@ -13,8 +13,7 @@
 .user-greeting-section {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start; /* Alinea el texto arriba y la tarjeta de stats a la derecha */
-    margin-bottom: 20px;
+    align-items: center;
 }
 
 .user-greeting-section h1 {

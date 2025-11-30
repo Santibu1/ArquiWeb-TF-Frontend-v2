@@ -73,27 +73,45 @@ export class SolicitudesListarAdministrador {
         });
     }
 
-    aprobar(idSolicitud: number, idAdministrador: number) {
-        this.solicitudService.aprobarSolicitud(idSolicitud, this.adminId).subscribe({
-            next: (data) => {
-                console.log("Solicitud aprobada:", data);
-                this.solicitudService.actualizarLista();
-            },
-            error: (err) => {
-                console.error("Error al aprobar:", err);
-            }
-        });
+    aprobar(idSolicitud: number, estado: string) {
+
+        if (estado === "Rechazada") {
+            alert("Esta solicitud ya fue rechazada, no se puede cambiar")
+        }
+        if (estado === "Aprobada") {
+            alert("Esta solicitud ya fue aprobada")
+        }
+        if (estado === "Pendiente") {
+            this.solicitudService.aprobarSolicitud(idSolicitud, this.adminId).subscribe({
+                next: (data) => {
+                    console.log("Solicitud aprobada:", data);
+                    this.solicitudService.actualizarLista();
+                },
+                error: (err) => {
+                    console.error("Error al aprobar:", err);
+                }
+            });
+        }
     }
 
-    rechazar(idSolicitud: number, idAdministrador: number) {
-        this.solicitudService.rechazarSolicitud(idSolicitud, this.adminId).subscribe({
-            next: (data) => {
-                console.log("Solicitud rechazada:", data);
-                this.solicitudService.actualizarLista();
-            },
-            error: (err) => {
-                console.error("Error al rechazar:", err);
-            }
-        });
+    rechazar(idSolicitud: number, estado: string) {
+
+        if (estado === "Aprobada") {
+            alert("Esta solicitud ya fue aprobada, no se puede cambiar")
+        }
+        if (estado === "Rechazada") {
+            alert("Esta solicitud ya fue rechazada")
+        }
+        if (estado === "Pendiente") {
+            this.solicitudService.rechazarSolicitud(idSolicitud, this.adminId).subscribe({
+                next: (data) => {
+                    console.log("Solicitud rechazada:", data);
+                    this.solicitudService.actualizarLista();
+                },
+                error: (err) => {
+                    console.error("Error al rechazar:", err);
+                }
+            });
+        }
     }
 }
