@@ -1,20 +1,188 @@
-.titulo{
-    text-align: center;
-}
-.titulo-grafico1 {
-    text-align: left;
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
-.grafico-container {
-    display: flex;
-    justify-content: flex-start;
-    /*align-items: center;*/
-    height: 400px;
+/* =============================== */
+/*   CONTENEDOR GENERAL            */
+/* =============================== */
+.eco-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 25px;
 }
 
-.grafico-box1 {
-    width: 300px;
-    height: 300px;
+/* =============================== */
+/*   TÍTULO PRINCIPAL              */
+/* =============================== */
+.eco-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #2d6a4f;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+/* =============================== */
+/*   KPIS EN TARJETAS              */
+/* =============================== */
+.eco-kpi-row {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.eco-kpi-card {
+    background: #ffffff;
+    padding: 18px 25px;
+    border-radius: 15px;
+    text-align: center;
+    width: 180px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.07);
+    transition: transform 0.2s ease;
+    border: 1px solid #e8f5e9;
+}
+
+.eco-kpi-card:hover {
+    transform: translateY(-4px);
+}
+
+.eco-kpi-card h2 {
+    font-size: 2rem;
+    color: #1b4332;
+    margin: 0;
+}
+
+.eco-kpi-card p {
+    color: #40916c;
+    margin-top: 4px;
+    font-weight: 600;
+}
+
+/* =============================== */
+/*   GRID PRINCIPAL                */
+/* =============================== */
+.eco-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+}
+
+@media (max-width: 900px) {
+    .eco-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =============================== */
+/*   TARJETAS GENÉRICAS            */
+/* =============================== */
+.eco-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+    border: 1px solid #e8f5e9;
+}
+
+.eco-card-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #2d6a4f;
+    margin-bottom: 15px;
+}
+
+/* =============================== */
+/*   GRÁFICO                       */
+/* =============================== */
+.eco-chart-wrapper {
+    padding: 10px;
+    height: 350px;
+}
+
+@media (max-width: 768px) {
+    .eco-chart-wrapper {
+        height: 280px;
+    }
+}
+
+/* =============================== */
+/*   ANALISIS IA                   */
+/* =============================== */
+.eco-ai-content {
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: fadeIn 0.4s ease;
+}
+
+.eco-ai-content.cargando {
+    align-items: center;
+}
+
+/* Texto que devuelve la IA */
+.eco-ai-text {
+    white-space: pre-line;
+    color: #1b4332;
+    font-size: 1rem;
+    line-height: 1.55;
+}
+
+/* Negrita ecológica */
+.eco-ai-text strong,
+.eco-ai-text b {
+    color: #2d6a4f;
+}
+
+/* =============================== */
+/*   LOADER                        */
+/* =============================== */
+.eco-loader {
+    width: 45px;
+    height: 45px;
+    border: 5px solid #d8f3dc;
+    border-top-color: #2d6a4f;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-bottom: 0.6rem;
+}
+
+.eco-loading-text {
+    font-size: 0.95rem;
+    color: #344e41;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* =============================== */
+/*   BOTÓN ESCUCHAR                */
+/* =============================== */
+.eco-button {
+    margin-top: 15px;
+    padding: 12px 18px;
+    background-color: #2d6a4f;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.25s ease;
+    width: 100%;
+}
+
+.eco-button:hover {
+    background-color: #1b4332;
+}
+
+.eco-button:disabled {
+    background-color: #95d5b2;
+    cursor: not-allowed;
+}
+
+/* =============================== */
+/*   ANIMACIÓN GENERAL             */
+/* =============================== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
 }

@@ -6,14 +6,17 @@
 
 .user-home-dashboard {
     padding: 20px;
-    background-color: #ffffff; /* El fondo gris claro de user-content */
+    background-color: #ffffff;
 }
 
-/* Sección de Saludo y Estadísticas */
+/* ------------------- */
+/* Sección Saludo + Stats */
+/* ------------------- */
 .user-greeting-section {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    margin-bottom: 20px;
 }
 
 .user-greeting-section h1 {
@@ -38,145 +41,126 @@
     align-items: center;
     gap: 5px;
 }
+
 .stat-value {
     font-size: 2.5rem;
     font-weight: 800;
-    color: #4CAF50; /* Verde vibrante */
+    color: #4CAF50;
 }
+
 .stat-label {
     font-size: 0.9rem;
     color: #666;
     text-align: center;
 }
 
-/* Sección de Actividades Recientes */
-.recent-activities-section {
-    background-color: white;
+/* ------------------- */
+/* ⚡ NUEVA TARJETA ECO-TIP */
+/* ------------------- */
+.eco-tip-card {
+    margin-top: 25px;
+    padding: 25px;
     border-radius: 12px;
+    background-color: #E8F5E9;
+    border-left: 5px solid #4CAF50;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    padding: 30px;
 }
-.recent-activities-section h3 {
-    font-size: 1.6rem;
+
+.eco-tip-card h3 {
+    margin: 0;
+    color: #2e7d32;
     font-weight: 700;
-    color: #333;
-    margin-bottom: 25px;
+    font-size: 1.5rem;
     display: flex;
     align-items: center;
     gap: 10px;
 }
-.recent-activities-section h3::before { /* El círculo gris al lado de "Recientes" */
-    content: '';
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    background-color: #bbb;
-    border-radius: 50%;
+
+.eco-text {
+    margin-top: 12px;
+    font-size: 1rem;
+    color: #2e2e2e;
+    line-height: 1.4;
 }
 
-
-/* Tarjetas de Actividad */
-.activity-card {
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    background-color: #fcfcfc;
-}
-.activity-card:last-child {
-    margin-bottom: 0; /* No hay margen inferior en la última tarjeta */
+.loading {
+    color: #888;
 }
 
-.activity-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-.activity-icon {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background-color: #bbb; /* Fondo gris para el icono */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Botón refrescar */
+.btn-refrescar {
+    margin-top: 15px;
+    background-color: #4caf50;
     color: white;
-    font-size: 0.8rem;
-    font-weight: 600;
-}
-.activity-icon::before { /* Para poner un círculo pequeño de 'P' o 'E' */
-    content: 'P'; /* Puedes cambiarlo dinámicamente con JS */
-}
-/* Estilos específicos para el segundo icono (Entrenamiento) */
-.activity-card:nth-child(2) .activity-icon::before {
-    content: 'E';
-}
-
-
-.activity-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #444;
-    flex-grow: 1; /* Para que el título ocupe el espacio */
-}
-
-.notification-badge {
-    background-color: red;
-    color: white;
-    border-radius: 50%;
-    padding: 3px 7px;
-    font-size: 0.75rem;
-    font-weight: bold;
-}
-
-.close-activity-btn {
-    background: none;
-    border: none;
-    color: #999;
-    font-size: 1.2rem;
-    cursor: pointer;
-    padding: 0;
-}
-.close-activity-btn:hover {
-    color: #555;
-}
-
-.activity-details {
-    font-size: 0.95rem;
-    color: #666;
-    line-height: 1.5;
-    margin-bottom: 15px;
-    padding-left: 34px; /* Alineado con el texto del título */
-}
-
-.ver-conversacion-btn {
-    background-color: #4CAF50; /* Verde vibrante */
-    color: white;
-    border: none;
+    padding: 8px 18px;
     border-radius: 20px;
-    padding: 8px 15px;
-    font-size: 0.85rem;
+    border: none;
     cursor: pointer;
-    transition: background-color 0.2s;
-    margin-left: 34px; /* Alineado con el texto del título */
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease-in-out;
 }
-.ver-conversacion-btn:hover {
-    background-color: #45a049;
+
+.btn-refrescar:hover {
+    background-color: #43a047;
 }
-/* --- ESTILOS NUEVOS PARA LA CARGA --- */
+/* ----------------------------- */
+/* SECCIÓN DE SUSCRIPCIÓN       */
+/* ----------------------------- */
+
+.subscription-section {
+    margin-top: 30px;
+    padding: 30px;
+    background: #e8f5e9; /* Verde suave */
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.subscription-section h2 {
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+    color: #2e7d32; /* Verde vivo */
+    font-weight: 700;
+}
+
+.subscription-section p {
+    color: #4b4b4b;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.subscribe-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.subscribe-btn:hover {
+    background-color: #43a047;
+    transform: translateY(-2px);
+}
+
+/* ------------------- */
+/* Pantalla de carga */
+/* ------------------- */
 .loading-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Ajusta la altura como veas conveniente */
     height: 400px;
     font-size: 1.2rem;
     color: #666;
 }
 
 .error-message {
-    color: #D32F2F; /* Un color rojo para errores */
+    color: #D32F2F;
     font-weight: 500;
     padding: 20px;
     background-color: #FFEBEE;

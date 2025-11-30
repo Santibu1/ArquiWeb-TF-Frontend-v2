@@ -12,8 +12,37 @@
             </div>
         </div>
     </div>
-</div>
 
+    <!-- 🔥 ECO TIP - Reemplaza la sección de Recientes -->
+    <div class="eco-tip-card">
+        <h3>💬 EcoChat – Consejo del Día</h3>
+
+        <p *ngIf="cargandoEcoTip" class="loading">
+            Obteniendo tu eco-consejo...
+        </p>
+
+        <p *ngIf="!cargandoEcoTip" class="eco-text">
+            {{ ecoTip }}
+        </p>
+
+        <button class="btn-refrescar" (click)="cargarEcoTip()" [disabled]="cargandoEcoTip">
+            🔄 Nuevo consejo
+        </button>
+    </div>
+    <!-- SECCIÓN DE SUSCRIPCIÓN -->
+    <div class="subscription-section">
+        <h2>🌱 ¿Aún no tienes un plan con nosotros?</h2>
+        <p>
+            ¡No esperes más! Suscríbete hoy y accede a beneficios exclusivos,
+            eco-recompensas y contenido premium para mejorar tu vida sostenible.
+        </p>
+
+        <button class="subscribe-btn" (click)="irASuscripcion()">
+            Ver planes de suscripción
+        </button>
+    </div>
+
+</div>
 
 <ng-template #cargando>
     <div class="loading-container">

@@ -1,17 +1,79 @@
 <app-sub-navbar-usuario></app-sub-navbar-usuario>
-<h1 class="titulo">Reportes del mes</h1>
 
+<div class="eco-container">
 
-<div class="grafico-container">
-    <div class = "grafico-box1">
-        <div class="titulo-grafico1">Puntos obtenidos en eventos</div>
-        <canvas baseChart
-                [datasets]="barChartData"
-                [labels]="barChartLabels"
-                [options]="barChartOptions"
-                chartType="bar">
-        </canvas>
+    <!-- TÍTULO GENERAL -->
+    <h1 class="eco-title">🌿 Reportes del mes</h1>
+
+    <!-- ✓ TARJETAS DE INDICADORES -->
+    <div class="eco-kpi-row">
+
+        <!-- Meses registrados -->
+        <div class="eco-kpi-card">
+            <h2>{{ totalMeses }}</h2>
+            <p>Meses registrados</p>
+        </div>
+
+        <!-- Puntos totales -->
+        <div class="eco-kpi-card">
+            <h2>{{ totalPuntos }}</h2>
+            <p>Puntos totales</p>
+        </div>
+
+        <!-- Estado IA -->
+        <div class="eco-kpi-card">
+            <h2>{{ cargandoIA ? "…" : "✔" }}</h2>
+            <p>Análisis IA</p>
+        </div>
+
     </div>
 
+    <!-- GRID PRINCIPAL -->
+    <div class="eco-grid">
 
+        <!-- ============================ -->
+        <!--      📊 GRÁFICO BARRAS        -->
+        <!-- ============================ -->
+        <div class="eco-card eco-chart-card">
+            <h3 class="eco-card-title">📊 Puntos obtenidos</h3>
+
+            <div class="eco-chart-wrapper">
+                <canvas baseChart
+                        [datasets]="barChartData"
+                        [labels]="barChartLabels"
+                        [options]="barChartOptions"
+                        type="bar">
+                </canvas>
+            </div>
+        </div>
+
+        <!-- ============================ -->
+        <!--     ✨ ANÁLISIS ECO IA        -->
+        <!-- ============================ -->
+        <div class="eco-card eco-ai-card">
+            <h3 class="eco-card-title">✨ Análisis Eco-Inteligente</h3>
+
+            <div class="eco-ai-content" [class.cargando]="cargandoIA">
+
+                <!-- LOADING -->
+                <ng-container *ngIf="cargandoIA">
+                    <div class="eco-loader"></div>
+                    <p class="eco-loading-text">Generando análisis ecológico…</p>
+                </ng-container>
+
+                <!-- TEXTO IA -->
+                <ng-container *ngIf="!cargandoIA">
+                    <div class="eco-ai-text" [innerHTML]="recomendacionIA"></div>
+                </ng-container>
+
+            </div>
+
+            <button class="eco-button"
+                    (click)="escucharAnalisis()"
+                    [disabled]="cargandoIA">
+                🔊 Escuchar análisis
+            </button>
+        </div>
+
+    </div>
 </div>

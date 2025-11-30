@@ -1,7 +1,7 @@
 import {Component, Inject, inject, OnInit} from '@angular/core';
 import {EventoService} from "../../../../services/evento-service";
 import {UsuarioEventoDto} from "../../../../model/usuario-evento-dto";
-import {MAT_DIALOG_DATA, MatDialogModule} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import {CommonModule} from "@angular/common";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
@@ -16,7 +16,8 @@ export class VerParticipantesDialog implements OnInit{
     private eventoService = inject(EventoService);
     participantes: UsuarioEventoDto[] = [];
 
-    constructor(@Inject(MAT_DIALOG_DATA) public data: { eventoId: number }) {}
+    constructor(
+                @Inject(MAT_DIALOG_DATA) public data: { eventoId: number }) {}
 
     ngOnInit(): void {
         this.eventoService.listarParticipantes(this.data.eventoId).subscribe({
