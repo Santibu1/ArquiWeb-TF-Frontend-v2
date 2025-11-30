@@ -3,40 +3,67 @@ import {SubNavbarUsuario} from "../sub-navbar-usuario/sub-navbar-usuario";
 import {Usuario} from "../../../model/usuario";
 import {UsuarioService} from "../../../services/usuario-service";
 import {CommonModule} from "@angular/common";
-import {RouterLink, RouterLinkActive} from "@angular/router";
+import {EcoChatService} from "../../../services/eco-chat-service";
+import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-home-usuario',
+    selector: 'app-home-usuario',
     standalone: true,
-    imports: [CommonModule, SubNavbarUsuario, RouterLink, RouterLinkActive],
-  templateUrl: './home-usuario.html',
-  styleUrl: './home-usuario.css',
+    imports: [CommonModule,SubNavbarUsuario],
+    templateUrl: './home-usuario.html',
+    styleUrl: './home-usuario.css',
 })
 export class HomeUsuario implements OnInit {
-// Variable para guardar los datos del usuario. Inicia como nula.
-    usuarioLogueado: Usuario| null = null ;
+    private router = inject(Router);
+// --- VARIABLES ---
+    usuarioLogueado: Usuario | null = null;
     errorCarga: string | null = null;
 
-    // Inyectamos el servicio
-    private usuarioService: UsuarioService = inject(UsuarioService);
+    ecoTip: string = "Cargando eco-consejo...";
+    cargandoEcoTip: boolean = true;
 
-    // ngOnInit se ejecuta cuando el componente se inicia
+    // --- SERVICIOS ---
+    private usuarioService = inject(UsuarioService);
+    private ecoChat = inject(EcoChatService);
+
+    // --- INICIO ---
     ngOnInit(): void {
-        // Llamamos al servicio para obtener el perfil del usuario
+        this.cargarPerfil();
+        this.cargarEcoTip();
+    }
+
+    // --- PERFIL DEL USUARIO ---
+    cargarPerfil() {
         this.usuarioService.getMiPerfil().subscribe({
             next: (data) => {
-                // Si todo sale bien, guardamos los datos en nuestra variable
                 this.usuarioLogueado = data;
-                console.log('Usuario cargado:', this.usuarioLogueado);
-                //localStorage.setItem('idUsuario', String(data.usuarioId))
-                //console.log('ID guardado en localStorage:', localStorage.getItem('idUsuario'));
+                console.log("Usuario cargado:", data);
+                localStorage.setItem('idUsuario', String(data.usuarioId));
             },
             error: (err) => {
-                // Si hay un error, lo registramos y mostramos un mensaje
-                console.error('Error al cargar el perfil del usuario:', err);
-                this.errorCarga =
-                    'No se pudo cargar tu perfil. Intenta recargar la página.';
-            },
+                console.error("Error al cargar perfil:", err);
+                this.errorCarga = "No se pudo cargar tu perfil. Intenta recargar la página.";
+            }
         });
+    }
+
+    // --- ECO TIP ---
+    cargarEcoTip() {
+        this.cargandoEcoTip = true;
+
+        this.ecoChat.obtenerEcoTip().subscribe({
+            next: (tip) => {
+                this.ecoTip = tip;
+                this.cargandoEcoTip = false;
+            },
+            error: (err) => {
+                console.error("Error EcoTip:", err);
+                this.ecoTip = "No se pudo cargar tu eco-consejo hoy 🌱";
+                this.cargandoEcoTip = false;
+            }
+        });
+    }
+    irASuscripcion() {
+        this.router.navigate(['usuario/suscripcion']);
     }
 }

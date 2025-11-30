@@ -40,7 +40,7 @@ export class EventoService {
     }
     confirmarAsistencia(eventoId: number, usuarioId: number): Observable<any> {
         return this.http.post(
-            `${this.urlUsuarioEvento}/confirmar-asistencia/${eventoId}/${usuarioId}`,  // ✅ CORRECTO
+            `${this.urlUsuarioEvento}/confirmar-asistencia/${eventoId}/${usuarioId}`,
             {}
         );
     }
