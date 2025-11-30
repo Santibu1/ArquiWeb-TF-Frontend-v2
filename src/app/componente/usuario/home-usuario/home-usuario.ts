@@ -5,6 +5,7 @@ import {UsuarioService} from "../../../services/usuario-service";
 import {CommonModule} from "@angular/common";
 import {EcoChatService} from "../../../services/eco-chat-service";
 import {Router} from "@angular/router";
+import {UsuarioPlan} from "../../../model/usuario-plan";
 
 @Component({
     selector: 'app-home-usuario',
@@ -18,6 +19,11 @@ export class HomeUsuario implements OnInit {
 // --- VARIABLES ---
     usuarioLogueado: Usuario | null = null;
     errorCarga: string | null = null;
+    // ESTADO DEL PLAN
+    planActivo: boolean | null = null;   // null = no mostrar nada
+    diasRestantes: number = 0;
+    fechaInicio: string | null = null;
+    fechaFin: string | null = null;
 
     ecoTip: string = "Cargando eco-consejo...";
     cargandoEcoTip: boolean = true;
@@ -30,6 +36,7 @@ export class HomeUsuario implements OnInit {
     ngOnInit(): void {
         this.cargarPerfil();
         this.cargarEcoTip();
+        this.cargarEstado();
     }
 
     // --- PERFIL DEL USUARIO ---
@@ -43,6 +50,33 @@ export class HomeUsuario implements OnInit {
             error: (err) => {
                 console.error("Error al cargar perfil:", err);
                 this.errorCarga = "No se pudo cargar tu perfil. Intenta recargar la página.";
+            }
+        });
+    }
+    cargarEstado(){
+        this.usuarioService.getMiPlan().subscribe({
+            next: (data: UsuarioPlan) => {
+
+                this.fechaInicio = data.fechaInicioPlan;
+                this.fechaFin = data.fechaFinPlan;
+                this.diasRestantes = data.diasRestantes;
+
+                // Caso 1: No tiene plan → NO mostrar nada
+                if (!data.planId || !data.fechaInicioPlan || !data.fechaFinPlan) {
+                    this.planActivo = null;
+                    return;
+                }
+
+                // Caso 2: Plan activo
+                if (data.diasRestantes > 0) {
+                    this.planActivo = true;
+                    return;
+                }
+
+                // Caso 3: Plan expirado (0 o negativo)
+                this.planActivo = false;
+
+                console.log("Plan cargado:", data);
             }
         });
     }

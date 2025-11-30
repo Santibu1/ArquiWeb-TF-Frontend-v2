@@ -1,0 +1,100 @@
+<app-sub-navbar-usuario></app-sub-navbar-usuario>
+
+<div class="contenedor">
+
+    <button mat-icon-button class="btn-back" (click)="volver()">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+
+    <div *ngIf="usuarioLogueado; else cargando">
+
+        <mat-card class="form-card" appearance="outlined">
+
+            <!-- CABECERA -->
+            <div class="titulo-con-logo">
+                <img src="images/logos/YAPE-BCP.png" class="logo-bcp" alt="BCP">
+
+                <div class="titulos">
+                    <h2 class="titulo">Suscripción BCP</h2>
+                    <p class="subtitulo">Ingresa los datos solicitados</p>
+                </div>
+            </div>
+
+            <!-- CAMPOS -->
+            <mat-card-content>
+
+                <div class="grid">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput [value]="usuarioLogueado.nombreUsuario" readonly>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Apellido</mat-label>
+                        <input matInput [value]="usuarioLogueado.apellidoUsuario" readonly>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="correo-field">
+                        <mat-label>Correo</mat-label>
+                        <input matInput [value]="usuarioLogueado.emailUsuario" readonly>
+                    </mat-form-field>
+                </div>
+
+                <!-- CAMPOS EDITABLES -->
+                <div class="grid">
+
+                    <!-- TARJETA -->
+                    <mat-form-field appearance="outline">
+                        <mat-label>Número de tarjeta de crédito</mat-label>
+                        <input
+                                matInput
+                                maxlength="16"
+                                minlength="16"
+                                [(ngModel)]="tarjeta"
+                                name="tarjeta"
+                                required
+                                pattern="[0-9]*"
+                                (input)="soloNumeros($event)"
+                        >
+                        <mat-error *ngIf="tarjeta && tarjeta.length !== 16">
+                            La tarjeta debe tener 16 dígitos.
+                        </mat-error>
+                    </mat-form-field>
+
+                    <!-- CELULAR -->
+                    <mat-form-field appearance="outline">
+                        <mat-label>Número de celular</mat-label>
+                        <input
+                                matInput
+                                maxlength="9"
+                                minlength="9"
+                                [(ngModel)]="celular"
+                                name="celular"
+                                required
+                                pattern="[0-9]*"
+                                (input)="soloNumeros($event)"
+                        >
+                        <mat-error *ngIf="celular && celular.length !== 9">
+                            El celular debe tener 9 dígitos.
+                        </mat-error>
+                    </mat-form-field>
+
+                </div>
+
+            </mat-card-content>
+
+            <mat-card-actions class="acciones">
+                <button mat-raised-button color="primary" class="btn-registrar" (click)="registrar()">
+                    Registrar
+                </button>
+            </mat-card-actions>
+
+        </mat-card>
+
+    </div>
+
+    <ng-template #cargando>
+        <p class="cargando">Cargando datos...</p>
+    </ng-template>
+
+</div>

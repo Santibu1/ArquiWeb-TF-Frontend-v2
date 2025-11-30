@@ -83,7 +83,9 @@ export class ActividadesNuevoEditAdministradorComponent implements OnInit {
             this.id = data['id'];
             console.log("ID recibido:", this.id);
             this.edicion = data['id'] != null;
-            this.cargaForm(); // Nombre de función idéntico
+            if (this.edicion) {
+                this.cargaForm(); // Solo cargamos si estamos editando
+            }
         });
     }
 

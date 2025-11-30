@@ -38,12 +38,13 @@ import {RegisterComponent} from "./componente/register-component/register-compon
 import {ListarComunidadesUser} from "./componente/usuario/listar-comunidades-user/listar-comunidades-user";
 import {ComunidadUser} from "./componente/usuario/comunidad-user/comunidad-user";
 import {SuscripcionUsuario} from "./componente/usuario/suscripcion-usuario/suscripcion-usuario";
-import {SuscripcionMetodoPago} from "./componente/usuario/suscripcion-metodo-pago/suscripcion-metodo-pago";
 import {EditarPerfilUsuarioComponent} from "./componente/usuario/editar-perfil-usuario/editar-perfil-usuario";
 import {SolicitudCrearModerador} from "./componente/usuario/solicitud-crear-moderador/solicitud-crear-moderador";
 import {
     ReporteParticipacionUsuario
 } from "./componente/usuario/reporte-participacion-usuario/reporte-participacion-usuario";
+import {SuscripcionBcp} from "./componente/usuario/suscripcion-bcp/suscripcion-bcp";
+import {SuscripcionPlin} from "./componente/usuario/suscripcion-plin/suscripcion-plin";
 
 export const routes: Routes = [
     // 🔐 LOGIN
@@ -80,7 +81,8 @@ export const routes: Routes = [
     { path: 'usuario/comunidades', component: ListarComunidadesUser },
     { path: 'usuario/comunidad/chat', component: ComunidadUser },
     { path: 'usuario/suscripcion', component: SuscripcionUsuario},
-    { path: 'usuario/suscripcion-metodo-pago', component: SuscripcionMetodoPago},
+    { path:'usuario/suscripcion-bcp', component: SuscripcionBcp },
+    { path:'usuario/suscripcion-plin', component: SuscripcionPlin },
     { path: 'editar-perfil',  component: EditarPerfilUsuarioComponent  },
     { path: 'moderador/solicitud', component: SolicitudCrearModerador},
     {path: 'usuario/estadisticas',component:ReporteParticipacionUsuario},

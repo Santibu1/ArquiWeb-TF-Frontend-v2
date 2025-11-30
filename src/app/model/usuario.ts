@@ -3,9 +3,10 @@ export class Usuario {
     nombreUsuario: string;
     apellidoUsuario: string;
     emailUsuario: string;
-    passwordUsuario?: string; // <-- Hecho opcional, no recibimos esto del backend
+    passwordUsuario?: string;
     edadUsuario: number;
     ecobits: number;
     rolId: number;
-    planId: number;
+    planId: number | null;
+    estado: string;
 }

@@ -209,3 +209,7 @@
 }
 
 /* El .login-footer local se eliminó porque ahora usas el footer global */
+.snackbar-error {
+    background-color: #d32f2f !important; /* Rojo oscuro */
+    color: white !important;
+}
