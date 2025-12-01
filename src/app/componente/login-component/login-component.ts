@@ -65,6 +65,8 @@ export class LoginComponent {
                     const rol = rolRaw.replace('ROLE_', '');
                     localStorage.setItem('rol', rol);
 
+                    localStorage.setItem('guard', rol);
+
                     // Navegación según rol
                     if (rol === 'ADMINISTRADOR') {
                         this.router.navigate(['/admin']);

@@ -45,6 +45,7 @@ import {
 } from "./componente/usuario/reporte-participacion-usuario/reporte-participacion-usuario";
 import {SuscripcionBcp} from "./componente/usuario/suscripcion-bcp/suscripcion-bcp";
 import {SuscripcionPlin} from "./componente/usuario/suscripcion-plin/suscripcion-plin";
+import {AuthGuard} from "./auth-guard";
 
 export const routes: Routes = [
     // 🔐 LOGIN
@@ -53,7 +54,7 @@ export const routes: Routes = [
     // 🧭 ADMINISTRADOR
     {
         path: 'admin',
-        component: MenuAdministrador,
+        component: MenuAdministrador, canActivate: [AuthGuard],
         children: [
             { path: 'actividades', component: ActividadesListarAdministradorComponent },
             { path: 'actividad/nuevo', component: ActividadesNuevoEditAdministradorComponent },
@@ -74,7 +75,7 @@ export const routes: Routes = [
     },
 
     // 👤 USUARIO
-    { path: 'usuario/home', component: HomeUsuario },
+    { path: 'usuario/home', component: HomeUsuario, canActivate: [AuthGuard], },
     { path: 'usuario/actividades', component: ListarActividadesUser },
     { path: 'usuario/productos', component: ListarProductosUser },
     { path : 'registro' , component: RegisterComponent },
